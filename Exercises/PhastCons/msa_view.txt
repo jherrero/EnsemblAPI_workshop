@@ -1,0 +1,321 @@
+
+USAGE: msa_view [OPTIONS] <infile>
+
+DESCRIPTION:
+
+    Provides various kinds of "views" of one or more multiple
+    alignments.  Can extract a sub-alignment from an alignment (by row
+    or by column) or combine several alignments into one.  Also can
+    extract the sufficient statistics for phylogenetic analysis from
+    an alignment, optionally accounting for site categories that are
+    defined by an auxiliary annotations file.  Supports various other
+    functions, including gap stripping, column randomization, and
+    reordering of sequences.  Capable of reading and writing in a few
+    common formats.  Can be used for file conversion (by default,
+    output is the entire input alignment).
+
+EXAMPLES:
+
+    (See below for more details on options)
+
+    1. Convert alignment formats (default input and output is FASTA)
+
+        msa_view myfile.fa --out-format PHYLIP > myfile.ph
+        msa_view myfile2.raw --in-format MPM > myfile2.fa
+
+    2. Obtain a sub-alignment by position, using the coordinate frame
+    of the first sequence in the alignment.
+
+        msa_view myfile.fa --start 1234 --end 5678 --refidx 1 > mysub.fa
+
+    3. Obtain a sub-alignment by sequence.
+
+        msa_view myfile.fa --seqs 1,4,5 > seqs145.fa
+        msa_view myfile.fa --seqs 1,4,5 --exclude > seqs236.fa
+
+    (can also specify sequences by name, e.g., --seqs cow,rat,pig)
+
+    4. Concatenate alignments. 
+
+        msa_view --aggregate human,mouse,rat myf1.fa myf2.fa myf3.fa 
+            > concat.fa
+
+    (source alignments may have different subsets of sequences and may
+    use different sequence orders; here, human,mouse,rat defines full
+    set and order in output alignment)
+
+    5. Extract sufficient statistics from a FASTA file.
+
+        msa_view myfile.fa --out-format SS > myfile.ss
+
+    6. Extract sufficient statistics from a MAF file for a complete
+    human chromosome.  (Can be used by phyloFit.)
+
+        msa_view chr1.maf --in-format MAF --out-format SS > chr1.ss
+
+    7. As in (6), but include information about regions of the
+    reference sequence not present in the MAF file, and include a
+    representation of the order in which alignment columns occur
+    (needed by programs such as phastCons or exoniphy).  
+
+        msa_view chr1.maf --in-format MAF --refseq chr1.fa
+            --out-format SS > chr1.ordered.ss
+
+    8. As in (6), but collect statistics for pairs of adjacent sites
+    (can be used by phyloFit to estimate a dinucleotide model).
+
+        msa_view chr1.maf --in-format MAF --out-format SS 
+            --tuple-size 2 > chr1.pairs.ss
+
+    9. Pool sufficient statistics from several human chromosomes.
+
+        msa_view --in-format SS --aggregate human,mouse,rat 
+            --out-format SS chr1.ss chr2.ss chr3.ss > chr123.ss
+
+    10. Extract separate sufficient statistics for the three codon
+    positions, as defined by annotations in a GFF file.
+
+        msa_view chr1.maf --in-format MAF --features chr22.gff 
+            --catmap "NCATS = 3; CDS 1-3" --out-format SS 
+            > chr22.pos.ss
+
+    11. As in (10), but re-orient genes on - strand so that stats
+    reflect + strand.  Assume genes are defined by tag "transcript_id".
+
+        msa_view chr1.maf --in-format MAF --features chr22.gff 
+            --catmap "NCATS = 3; CDS 1-3" --reverse-groups transcript_id
+            --out-format SS > chr22.pos.ss
+
+OPTIONS:
+
+ (Obtaining sub-alignments and combining alignments)
+    --start, -s <start_col>
+        Starting column of sub-alignment (indexing starts with 1).
+        Default is 1.
+
+    --end, -e <end_col>
+        Ending column of sub-alignment.  Default is length of
+        alignment.
+
+    --seqs, -l <seq_list>
+        Comma-separated list of sequences to include (default)
+        exclude (if --exclude).  Indicate by sequence number or name
+        (numbering starts with 1 and is evaluated *after* --order is
+        applied).
+
+    --exclude, -x
+        Exclude rather than include specified sequences.
+
+    --refidx, -r <ref_seq>
+        Index of reference sequence for coordinates.  Use 0 to
+        indicate the coordinate system of the alignment as a whole
+        (this is the default).
+
+    --aggregate, -A <name_list>
+        (Not compatible with --start or --end) Create an aggregate
+        alignment from a set of alignment files, by concatenating
+        individual alignments.  If used with --out-format SS and
+        --unordered-ss, the aggregate alignment will never be created
+        explicitly (recommended for large data sets).  The argument
+        <name_list> must be a list of sequence names, including all
+        names in all specified alignments (missing sequences will be
+        replaced by rows of missing data).  The standard <msa_fname>
+        argument should be replaced with a list of (whitespace-
+        separated) file names.
+
+ (File formats, gap stripping, reordering, etc.)
+    --in-format, -i PHYLIP|FASTA|MPM|MAF|SS
+        (Default FASTA) Input file format.  FASTA is as usual.  PHYLIP
+        is compatible with the formats used in the PHYLIP and PAML
+        packages.  MPM is the format used by the MultiPipMaker aligner
+        and some other of Webb Miller's older tools.  MAF ("Multiple
+        Alignment Format") is used by MULTIZ/TBA and the UCSC Genome
+        Browser.  SS is a simple format describing the sufficient
+        statistics for phylogenetic inference (distinct columns or
+        tuple of columns and their counts).  Use --out-format SS with
+        --in-format MAF for best efficiency (explicit alignment is
+        never created).  Also, use --unordered-ss if possible.
+
+    --out-format, -o PHYLIP|FASTA|MPM|SS
+        (Default FASTA)  Output file format.
+
+    --alphabet, -a <alphabet_string>
+        Use the specified alphabet (default "ACGT").  In addition,
+        '-' characters are assumed to represent alignment gaps, and
+        '*' and 'N' characters are allowed for missing data.
+        Alphabetical letters not in the alphabet will be converted to
+        'N's upon input.  This option is ignored with SS input (alphabet
+        specified within SS files.)
+
+    --soft-masked, -f
+        Implies --alphabet 'ACGTNacgtn', useful for soft-masked sequences.
+
+    --unmask, -u
+        Remove soft-masking; convert to uppercase.
+
+    --pretty, -P
+        Pretty-print alignment (use '.' when character matches
+        corresponding character in first sequence).  Ignored if
+        --out-format SS is selected.
+
+    --gap-strip, -G ALL|ANY|<s>
+        Strip columns containing all gaps, any gaps, or a gap in the
+        specified sequence (<s>).  Indexing starts at one and refers
+        to the list *after* any sequences have been added or
+        subtracted (via --seqs and --exclude or --order).
+
+    --collapse-missing, -p
+        (For use with -o SS) Convert all missing-data characters and
+        gaps to "*" characters.  Can be used to make sufficient
+        statistics more compact, which can improve the performance of
+        phyloFit (all missing data and gap characters are typically
+        treated the same by phyloFit anyway).
+
+    --mark-missing, -K <maxlen> 
+        Convert all gaps of length greater than <maxlen> to "*"
+        characters.  If --refidx is specified (with a positive index),
+        gaps in the designated reference sequence will not be altered.
+        This is a useful heuristic for distinguishing between
+        microindels and regions of missing data (e.g., due to
+        large-scale indels, incomplete assemblies, or highly
+        diverged sequences).
+
+    --missing-as-indels, -m 
+        Convert all missing data characters (Ns and *s) to gap
+        characters, except for Ns in a reference sequence specified by
+        --refidx, which will be replaced by randomly selected
+        nucleotides.  (This allows the coordinate frame for the
+        reference sequence to be maintained; this option is only
+        recommended if such Ns are rare.)  If --refidx is not
+        used, all Ns will be replaced by gaps.  You may want to use
+        --gap-strip ALL with this option.
+
+    --order, -O <name_list>
+        Change order of rows in alignment to match sequence names
+        specified in name_list.  If a name appears in name_list but
+        not in the alignment, a row of gaps will be inserted.  This
+        option is applied to the alignment *before* --seqs,
+        --refidx, and --gap-strip are applied.
+
+    --reverse-complement, -V
+        Reverse complement output alignment.
+
+    --randomize, -R
+        Randomly permute the columns of the source alignment (done
+        *before* taking sub-alignment).  Requires an ordered
+        representation of the alignment (careful using with
+        --in-format SS|MAF -- will create full alignment from
+        sufficient statistics).
+
+    --fill-Ns, -N <s:b-e>
+        Fill sequence no. <s> with Ns, from <b> to <e>. Applied before
+        --start, --end, --seqs, --gap-strip, but after --order.
+        Coordinate frame depends on --refidx.  Can be used
+        multiple times.
+
+    --summary-only -S
+        Report only summary statistics, rather than complete
+        alignment.  Statistics are for alignment that would otherwise
+        be output (i.e., after other options have been applied).
+
+    --window-summary, -w <win_size>
+        Like -S, but output summary statistics for non-overlapping
+        windows of the specified size.
+
+ (Sufficient statistics)
+    --tuple-size, -T <tup_size>
+        (For use with --out-format SS).  Represent an alignment in
+        terms of tuples of columns of the designated size.  Useful
+        with context-dependent phylogenetic models.
+
+    --unordered-ss, -z
+        (For use with --out-format SS).  Suppress the portion of the
+        sufficient statistics concerned with the order in which
+        columns appear.  Useful for analyses for which order is
+        unimportant.
+
+ (MAF input)
+    --refseq, -M <fname>
+        Read the complete text of the reference sequence from
+        <fname> (FASTA format) and combine it with the contents of
+        the MAF file to produce a complete, ordered representation of
+        the alignment (unaligned regions will be represented by gaps).
+        Best used with --out-format SS.  The reference sequence of the
+        MAF file is assumed to be the one that appears first in each
+        block.
+
+    --keep-overlapping, -k
+        Keep blocks in MAF that have overlapping coordinates in the
+        reference (1st) sequence (by default, only the first one is
+        kept).  Useful in extracting unordered stats from a jumbled
+        collection of MAF blocks (e.g., output of Jim Kent's mafFrags
+         program).  Cannot be used with --refseq, --features, or
+        --cats-cycle.
+
+ (Site categories: all options require --out-format SS)
+    --features, -g <gff_fname>
+        (Requires --catmap) Read sequence annotations from the
+        specified file (GFF) and label the columns of the alignment
+        accordingly.  Note: UCSC BED and genepred formats are now
+        recognized as well.
+
+    --catmap, -c <fname>|<string>
+        (optionally use with --features) Mapping of feature types to
+        category numbers.  Can either give a filename or an "inline"
+        description of a simple category map, e.g., --catmap "NCATS =
+        3 ; CDS 1-3" or --catmap "NCATS = 1 ; UTR 1".
+
+    --cats-cycle, -Y <cycle_size>
+        (alternative to --features and --catmap) Assign site categories in
+        cycles of the specified size, e.g., as 1,2,3,...,1,2,3 (for
+        cycle_size == 3).  Useful for in-frame coding sequence, or to
+        partition a data set into nonoverlapping tuples of columns
+        (use with --do-cats).
+
+    --do-cats, -C <cat_list>
+        (For use with --features or --cats-cycle)  Obtain
+        sufficient statistics only for the specified categories
+        (comma-delimited list, by number).  Currently has no effect with
+        --in-format MAF (stats for all categories are automatically
+        collected as file is read).
+
+    --codons, -D
+        Extract sufficient statistics for in-frame codons.  Implies
+        --tuple-size 3 --cats-cycle 3 --do-cats 3.  Not appropriate
+        for use with --features/--catmap.
+
+    --reverse-groups, -W <tag>
+        (For use with --features) Group features by <tag> (e.g.,
+        "transcript_id" or "exon_id") and reverse complement
+        segments of the alignment corresponding to groups on the
+        reverse strand.  Groups must be non-overlapping (see refeature
+        --unique).  Useful when extracting sufficient statistics for
+        strand-specific site categories (e.g., codon positions).
+
+    --4d, -4
+        (For use with --features; assumes coding regions have feature
+        type 'CDS')  Extract sufficient statistics for fourfold
+        degenerate synonymous sites.  Implies --out-format SS
+        --unordered-stats --tuple-size 3 --reverse-groups transcript_id.
+
+ (Alignment cleaning)
+    --clean-coding, -L <seqname>
+        Clean an alignment of coding sequences with respect to a named
+        reference sequence.  Removes sites with gaps and blocks of
+        gapless sites smaller than 10 codons in length, ensures
+        everything is in-frame wrt reference sequence, prohibits
+        in-frame stop codons.  Reference sequence must begin with a
+        start codon and end with a stop codon.
+
+    --clean-indels, -I <nseqs>
+        Clean an alignment with special attention to indels.  Sites
+        with fewer than <nseqs> bases are removed; bases adjacent to
+        indels, and short gapless subsequences, are replaced with Ns.
+        If used with --tuple-size, then <tup_size>-1 columns of Ns
+        will be retained between columns not adjacent in the original
+        alignment.  Frame is not considered.
+
+ (Other)
+    --help, -h
+        Print this help message.
+

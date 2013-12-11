@@ -1,0 +1,11 @@
+tba.v12: TBA -- threaded block alignment.
+args: [+-] [R=?] [M=?] [E=?] [P=?] [X=?] species-guid-tree maf-source destination
+	R(30) dynamic programming radius.
+	M(1) minimum block length of output.
+	E(null) null: no reference centric alignment, single coverage is guaranteed for every species; reference: refernece centric alignment, singe coverage is guaranteed for reference species.
+	P(null) null: run multiz; P=multic specifies to run multic.
+	X(0) utilize maf files with different suffix from differnt post processing.
+		0: .sing.maf from single coverage pairwise alignment
+		1: .toast.maf from full size toast
+		2: .toast2.maf from reduced size toast
+

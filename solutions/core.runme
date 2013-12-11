@@ -1,0 +1,16 @@
+perl core1.pl > core1.txt
+perl core2a_bas.pl > core2a_bas.txt
+perl core2a_adv.pl
+perl core2a_exp.pl
+perl core2b_bas.pl > core2b_bas.txt
+perl core2b_adv.pl > core2b_adv.txt
+perl core2c.pl > core2c.txt
+perl core3a.pl > core3a.txt
+perl core3b_bas.pl > core3b_bas.txt
+perl core3b_adv.pl > core3b_adv.txt
+perl core3b_exp.pl > core3b_exp.txt
+perl core3c.pl > core3c.txt
+perl core4a.pl > core4a.txt
+perl core4b.pl > core4b.txt
+perl core4c.pl > core4c.txt
+

@@ -1,0 +1,332 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="eng"><!-- InstanceBegin template="/Templates/new_template_leftmenu.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
+<meta name="author" content="EBI Web Team" />
+<meta http-equiv="Content-Language" content="en-GB" />
+<meta http-equiv="Window-target" content="_top" />
+<meta name="no-email-collection" content="http://www.unspam.com/noemailcollection/" />
+<meta name="generator" content="Dreamweaver 8" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title id="doctitle">Whole-Genome Alignments Exercises</title>
+<!-- InstanceEndEditable --> 
+<link rel="stylesheet"  href="http://www.ebi.ac.uk/inc/css/contents.css"     type="text/css" />
+<link rel="stylesheet"  href="http://www.ebi.ac.uk/inc/css/userstyles.css"   type="text/css" />
+<script src="http://www.ebi.ac.uk/inc/js/contents.js" type="text/javascript"></script>
+<link rel="stylesheet"  href="http://www.ebi.ac.uk/inc/css/sidebars.css"   type="text/css" />
+<link rel="SHORTCUT ICON" href="http://www.ebi.ac.uk/bookmark.ico" />
+<style type="text/css"> 
+@media print { 
+	body, .contents, .header, .contentsarea, .head { 
+		position: relative;
+	}  
+} 
+</style> 
+<!-- InstanceBeginEditable name="head" -->
+<!--  start meta tags, css , javascript here   -->
+
+
+<!--  end meta tags, css , javascript here  -->
+<!-- InstanceEndEditable --> 
+</head>
+<body onload="if(navigator.userAgent.indexOf('MSIE') != -1) {document.getElementById('head').allowTransparency = true;}">
+	<div class="headerdiv" id="headerdiv" style="position:absolute; z-index: 1;">
+		<iframe src="/inc/head.html" name="head" id="head" frameborder="0" marginwidth="0px" marginheight="0px" scrolling="no"  width="100%" style="position:absolute; z-index: 1; height: 57px;">Your browser does not support inline frames or is currently configured not to display inline frames. Content can be viewed at actual source page: http://www.ebi.ac.uk/inc/head.html</iframe>
+	</div>
+	<div class="contents" id="contents"><table class="contentspane" id="contentspane" summary="The main content pane of the page"><tr><td class="leftmargin"><img src="http://www.ebi.ac.uk/inc/images/spacer.gif" class="spacer" alt="spacer" /></td><td class="leftmenucell" id="leftmenucell">
+	  <div class="leftmenu" id="leftmenu" style="width: 145px; visibility: visible; display: block;"> 
+		  <!-- InstanceBeginEditable name="leftnav" -->
+		  
+<!-- start left menu here -->
+<script type="text/javascript" src="/inc/js/jquery.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("#commonheader").load("header.html");
+    $("#leftmenu").load("/~jherrero/left_menu.html" ,function() {
+         $("#courses").addClass("clickmeopen");
+       }
+    );
+    // Prepend title in "title.txt" if it exists
+    title = document.title;
+    $('#doctitle').load("../title.txt", '', function(data) {
+    		if ($(this).text() != title) {
+    			document.title = $(this).text() + " - " + title
+    		}
+ 	   });
+    // Set the URLs in the text for wget commands
+    $("#E_coli_o17_k52_h18_file_url").text(window.location.href.replace(/alignments.html/, "MultiZ/E_coli_o17_k52_h18"));
+    $("#E_coli_o8_file_url").text(window.location.href.replace(/alignments.html/, "MultiZ/E_coli_o8"));
+    $("#E_coli_o6_file_url").text(window.location.href.replace(/alignments.html/, "MultiZ/E_coli_o6"));
+    $("#E_coli_se15_file_url").text(window.location.href.replace(/alignments.html/, "MultiZ/E_coli_se15"));
+    $("#E_coli_k12_file_url").text(window.location.href.replace(/alignments.html/, "MultiZ/E_coli_k12"));
+    $("#human_file_url").text(window.location.href.replace(/alignments.html/, "Pecan/human.fa"));
+    $("#mouse_file_url").text(window.location.href.replace(/alignments.html/, "Pecan/mouse.fa"));
+    $("#rat_file_url").text(window.location.href.replace(/alignments.html/, "Pecan/rat.fa"));
+    $("#cow_file_url").text(window.location.href.replace(/alignments.html/, "Pecan/cow.fa"));
+    $("#opossum_file_url").text(window.location.href.replace(/alignments.html/, "Pecan/opossum.fa"));
+    $("#chicken_file_url").text(window.location.href.replace(/alignments.html/, "Pecan/chicken.fa"));
+  });
+</script>
+<!-- end left menu here -->
+		
+		<!-- InstanceEndEditable -->
+		<!-- InstanceBeginEditable name="lefticons" -->
+
+		<!-- InstanceEndEditable -->
+		<script type="text/javascript" src="http://www.ebi.ac.uk/inc/js/sidebars.js"></script>
+	    <img src="http://www.ebi.ac.uk/inc/images/spacer.gif" class="spacer" alt="spacer" /></div></td><td class="contentsarea" id="contentsarea">
+		<!-- InstanceBeginEditable name="contents" -->
+
+		<!-- start contents here -->
+<div id="commonheader">
+		<div class="breadcrumbs">
+    		<a href="http://www.ebi.ac.uk/" class="firstbreadcrumb">EBI</a>
+    		<a href ="http://www.ebi.ac.uk/Information/Staff/">Staff</a>
+    		<a href="http://www.ebi.ac.uk/~jherrero/">Javier Herrero</a>
+    		<a href="http://www.ebi.ac.uk/~jherrero/courses/">Workshops</a></div>
+
+		<h1>This workshop</h1>
+		<p><span class="red_bold">Date</span></p>
+</div>
+
+<h2>Whole Genome Alignments</h2>
+<p>In this exercise, we will use MultiZ to align 5 Escherichia species and Pecan to align the BRCA2 locus in human, mouse, rat, cow, oposssum and chicken. Feel free to use another locus or a different set of species, although you would have to prepare the input files yourself.</p>
+<p>One of the most annoying problems to run a whole genome aligner is to get the
+information in the right format. Whole genome aligner will require two basic
+pieces of information: the sequences to align and a species tree that relates the
+sequences. Different softwares rely on different criteria to link the species tree
+with the sequences. For instance, Pecan rely on the order of the sequences files, i.e.
+the leaves of the tree must be in the same order as the input files. MultiZ, on the other
+hand, relies on the name of the files.</p>
+
+
+<h2>MultiZ for 5 Escherichia species</h2>
+<p>This exercises proposes to align 5 Escherichia species using MultiZ.</p>
+<p>MultiZ is a software that combines several pairwise of multiple alignments into one single alignment using a reference species.</p>
+<h3>Here is the work done to prepare this exercise:</h3>
+<ol>
+<li>Select the set of species to be aligned. In this case I selected 5 Escherichia species from Ensembl Genomes (http://www.ensemblgenomes.org)</li>
+<li>Get a species tree (branch length are not important at this stage). You may have to trim the tree if it contains additional species. I used Dendroscope for this.</li>
+<li>Get the tree in the right format. With a text editor, I have modified the tree such as it does not contain comas, colons, distances nor the final semicolon</li>
+<li>Download the (repeat-masked) sequences for the species of interest. I have downloaded them from ftp://ftp.ensemblgenomes.org/pub/bacteria/release-11/fasta/escherichia_shigella_collection/:
+<ul>
+<li>ftp://ftp.ensemblgenomes.org/pub/bacteria/release-11/fasta/escherichia_shigella_collection/e_coli_k12/dna/E_coli_k12.EB1_e_coli_k12.dna.toplevel.fa.gz</li>
+<li>ftp://ftp.ensemblgenomes.org/pub/bacteria/release-11/fasta/escherichia_shigella_collection/e_coli_o17_k52_h18/dna/E_coli_o17_k52_h18.EB1_e_coli_o17_k52_h18.dna_rm.chromosome.Chromosome.fa.gz</li>
+<li>ftp://ftp.ensemblgenomes.org/pub/bacteria/release-11/fasta/escherichia_shigella_collection/e_coli_o6/dna/E_coli_o6.EB1_e_coli_o6.dna_rm.chromosome.Chromosome.fa.gz</li>
+<li>ftp://ftp.ensemblgenomes.org/pub/bacteria/release-11/fasta/escherichia_shigella_collection/e_coli_o8/dna/E_coli_o8.EB1_e_coli_o8.dna_rm.chromosome.Chromosome.fa.gz</li>
+<li>ftp://ftp.ensemblgenomes.org/pub/bacteria/release-11/fasta/escherichia_shigella_collection/e_coli_se15/dna/E_coli_se15.EB2_e_coli_se15.dna_rm.chromosome.Chromosome.fa.gz</li>
+</ul>
+</li>
+<li>Change the name of the files to match the species names in the tree</li>
+</ol>
+
+
+<h3>Resources</h3>
+<ul>
+<li>MultiZ/TBA and blastz download site: <a href="http://www.bx.psu.edu/miller_lab/">http://www.bx.psu.edu/miller_lab/</a></li>
+<li>Input files:
+ <ul>
+ <li>E_coli_o17_k52_h18 fasta file: [<a href="MultiZ/E_coli_o17_k52_h18">E_coli_o17_k52_h18</a>] </li>
+ <li>E_coli_o8 fasta file: [<a href="MultiZ/E_coli_o8">E_coli_o8</a>] </li>
+ <li>E_coli_o6 fasta file: [<a href="MultiZ/E_coli_o6">E_coli_o6</a>] </li>
+ <li>E_coli_se15 fasta file: [<a href="MultiZ/E_coli_se15">E_coli_se15</a>] </li>
+ <li>E_coli_k12 fasta file: [<a href="MultiZ/E_coli_k12">E_coli_k12</a>] </li>
+ </ul></li>
+</ul>
+
+<h3>Exercise:</h3>
+<ol>
+<li>Install blastz (used by MultiZ)
+<pre>mkdir -p ~/Downloads
+cd ~/Downloads
+wget http://www.bx.psu.edu/miller_lab/dist/blastz-2004-12-27.tar.gz
+mkdir -p ~/bin
+cd ~/bin
+tar -zxvf ~/Downloads/blastz-2004-12-27.tar.gz
+cd blastz-source/
+make
+</pre>
+</li>
+
+<li>Install multiz and tba:
+<pre>cd ~/Downloads
+wget http://www.bx.psu.edu/miller_lab/dist/multiz-tba.012109.tar.gz
+cd ~/bin
+tar -zxvf ~/Downloads/multiz-tba.012109.tar.gz
+cd multiz-tba.012109/
+# We will ignore the warnings
+sed -e 's/-Werror//' -i Makefile
+make
+</pre>
+</li>
+
+<li>Now, modify your path to run MulitZ and blastz:
+<pre>
+export PATH=$PATH:~/bin/blastz-source/:~/bin/multiz-tba.012109/
+</pre>
+</li>
+
+<li>Create a new directory and download the sequences. For instance:
+<pre>mkdir -p ~/whole_genome_alignments
+cd ~/whole_genome_alignments
+mkdir -p multiz
+cd multiz
+wget <a id="E_coli_o17_k52_h18_file_url">URL/MultiZ/E_coli_o17_k52_h18</a>
+wget <a id="E_coli_o8_file_url">URL/MultiZ/E_coli_o8</a>
+wget <a id="E_coli_o6_file_url">URL/MultiZ/E_coli_o6</a>
+wget <a id="E_coli_se15_file_url">URL/MultiZ/E_coli_se15</a>
+wget <a id="E_coli_k12_file_url">URL/MultiZ/E_coli_k12</a>
+</pre>
+</li>
+
+<li>See what will be run:
+<pre>
+all_bz - F=E_coli_k12 D=0 "(E_coli_o17_k52_h18 (E_coli_o8 ((E_coli_o6 E_coli_se15) E_coli_k12)))"
+</pre>
+<p>These creates all the blastz (pairwise alignment) commands required for MultiZ. It also creates all the self-alignments that are not required. We will ignore those. The last commands filter the result to remove overlapping alignments.</p>
+<p>Let's try to get the same list of commands, but without the self-alignments:</p>
+<pre>
+all_bz - F=E_coli_k12 D=0 \
+    "(E_coli_o17_k52_h18 (E_coli_o8 ((E_coli_o6 E_coli_se15) E_coli_k12)))" \
+    | grep -v "T=2"
+</pre>
+
+</li>
+
+<li>Create a bash file to run this:
+<pre>all_bz - F=E_coli_k12 D=0 \
+    "(E_coli_o17_k52_h18 (E_coli_o8 ((E_coli_o6 E_coli_se15) E_coli_k12)))" \
+    | grep -v "T=2" > run.all_bz
+</pre>
+</li>
+
+<li>Make this file executable.
+<pre>chmod +x run.all_bz
+</pre>
+</li>
+
+<li>Run it!
+<pre>
+./run.all_bz
+</pre>
+</li>
+
+<li>The next step is fairly complex. Essentially, we have to run multiz in with pairs of species/alignments in the order given byt the species tree. Luckily, we have a program that makes everything much easier. It is called roast. See what it does:
+<pre>
+roast - E=E_coli_k12 \
+    "(E_coli_o17_k52_h18 (E_coli_o8 ((E_coli_o6 E_coli_se15) E_coli_k12)))" \
+    Escherichia_shigella.multiz.maf
+</pre>
+</li>
+
+<li>Create a new bash file for roast:
+<pre>
+roast - E=E_coli_k12 \
+    "(E_coli_o17_k52_h18 (E_coli_o8 ((E_coli_o6 E_coli_se15) E_coli_k12)))" \
+    Escherichia_shigella.multiz.maf > run.roast
+</pre>
+</li>
+
+<li>Make this file executable.
+<pre>chmod +x run.roast
+</pre>
+</li>
+
+<li>Run it!
+<pre>
+./run.roast
+</pre>
+</li>
+</ol>
+
+<h3>Output</h3>
+<p>Multiz and TBA use the MAF format [<a href="http://genome.ucsc.edu/FAQ/FAQformat.html#format5">description</a>].
+This format supports several multiple alignments in the same file.</p>
+<p>Final multiple alignment: [<a href="MultiZ-TBA/tba_all.maf">tba_all.maf</a>]</p>
+<p>Final multiple alignment on human: [<a href="MultiZ-TBA/tba_human.maf">tba_human.maf</a>]</p>
+
+
+
+
+<h2>Pecan</h2>
+<h3>Running the software</h3>
+<p>Pecan is written in Java and requires Exonerate (a BLAST-like alignment software). The basic command line is:</p>
+<pre>java -cp &lt;PECAN.JAR&gt; bp.pecan.Pecan -E &lt;TREE_STRING&gt; -F &lt;SORTED_FASTA_FILES&gt; -G &lt;OUTPUT_FILE&gt;</pre>
+<p>Pecan wants a binary tree in Newick format. You can have distances, but they will be ignored. Pecan only
+cares about the topology of the tree. Here is the tree for these species:</p>
+<pre>((((HUMAN,(MOUSE,RAT)),COW),OPOSSUM),CHICKEN);</pre>
+<p>Build the command line. Remember to quote the tree and provide the sequence files in the right order! You may have to specify the location to exonerate (/soft/exonerate-2.2.0-x86_64/bin/)</p>
+
+<h3>Resources</h3>
+<ul>
+<li>Exonerate main web site: <a href="http://www.ebi.ac.uk/~guy/exonerate/">http://www.ebi.ac.uk/~guy/exonerate/</a></li>
+<li>Pecan link: <a href="http://www.ebi.ac.uk/~jherrero/downloads/pecan_v0.8.jar">http://www.ebi.ac.uk/~jherrero/downloads/pecan_v0.8.jar</a></li>
+<li>Pecan general README file: [<a href="Pecan/README_FIRST.txt">README_FIRST.txt</a>]</li>
+<li>Pecan README file: [<a href="Pecan/README_PECAN.txt">README_PECAN.txt</a>]</li>
+<li>Help for pecan command line: [<a href="Pecan/pecan.txt">pecan.txt</a>]</li>
+<li>Input files for Pecan (UNIX text file format):
+ <ul>
+ <li>Human fasta file: [<a href="Pecan/human.fa">human.fa</a>] </li>
+ <li>Mouse fasta file: [<a href="Pecan/mouse.fa">mouse.fa</a>] </li>
+ <li>Rat fasta file: [<a href="Pecan/rat.fa">rat.fa</a>] </li>
+ <li>Cow fasta file: [<a href="Pecan/cow.fa">cow.fa</a>] </li>
+ <li>Opossum fasta file: [<a href="Pecan/opossum.fa">opossum.fa</a>] </li>
+ <li>Chicken fasta file: [<a href="Pecan/chicken.fa">chicken.fa</a>] </li>
+ </ul></li>
+</ul>
+
+<h3>Exercise</h3>
+<ol>
+<li>Install Pecan
+<pre>mkdir -p ~/bin
+cd ~/bin
+wget http://www.ebi.ac.uk/~jherrero/downloads/pecan_v0.8.jar
+</pre>
+</li>
+
+<li>Create a new directory for this exercise:
+<pre>mkdir -p ~/whole_genome_alignments
+cd ~/whole_genome_alignments
+mkdir -p pecan
+cd pecan
+wget <a id="human_file_url">URL/Pecan/human.fa</a>
+wget <a id="mouse_file_url">URL/Pecan/mouse.fa</a>
+wget <a id="rat_file_url">URL/Pecan/rat.fa</a>
+wget <a id="cow_file_url">URL/Pecan/cow.fa</a>
+wget <a id="opossum_file_url">URL/Pecan/opossum.fa</a>
+wget <a id="chicken_file_url">URL/Pecan/chicken.fa</a>
+</pre>
+</li>
+<li>Run Pecan:
+<pre>
+java -cp ~/bin/pecan_v0.8.jar bp.pecan.Pecan \
+    -E "((((HUMAN,(MOUSE,RAT)),COW),OPOSSUM),CHICKEN);" \
+    -F human.fa mouse.fa rat.fa cow.fa opossum.fa chicken.fa \
+    -G pecan.mfa
+</pre>
+</li>
+
+</ol>
+
+<h3>Output</h3>
+<p>Pecan's output is a fasta alignment file.</p>
+<p>Final multiple alignment: [<a href="Pecan/pecan.mfa">pecan.mfa</a>] (NB: different runs can give different results)</p>
+
+<h3>Troubleshooting</h3>
+<ul>
+<li>Make sure that the order of the sequence files match the order of the leavs in the tree.</li>
+</ul>
+
+
+<h2>Next exercise</h2>
+<a href="conservation.html">Genomic Sequence Conservation</a>
+		<!-- end contents here -->					
+		<!-- InstanceEndEditable -->
+		<img src="http://www.ebi.ac.uk/inc/images/spacer.gif" class="spacer" alt="spacer" /></td>
+	    <td class="rightmenucell" id="rightmenucell"><div class="rightmenu" id="rightmenu"><img src="http://www.ebi.ac.uk/inc/images/spacer.gif" class="spacer" alt="spacer" /></div></td></tr></table>
+		<table class="footerpane" id="footerpane" summary="The main footer pane of the page"><tr><td colspan ="4" class="footerrow"><div class="footerdiv" id="footerdiv"  style="z-index:2;"><iframe src="/inc/foot.html" name="foot" frameborder="0" marginwidth="0px" marginheight="0px" scrolling="no"  height="22px" width="100%"  style="z-index:2;">Your browser does not support inline frames or is currently configured not to display inline frames. Content can be viewed at actual source page: http://www.ebi.ac.uk/inc/foot.html</iframe></div></td></tr>
+		</table>
+	  <script  src="http://www.ebi.ac.uk/inc/js/footer.js" type="text/javascript"></script>
+	</div>
+</body>
+<!-- InstanceEnd --></html>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="Generator" content="Kate, the KDE Advanced Text Editor" />
+<title>core3c.pl</title>
+</head>
+<body>
+<pre style='color:#141312;background-color:#ffffff;'>
+<b>use</b> <b>strict</b>;
+<b>use</b> <b>warnings</b>;
+
+<b>use</b> <span style='color:#644a9b;'>Bio::EnsEMBL</span>::<span style='color:#644a9b;'>Registry</span>;
+
+<i><span style='color:#888786;'>## Load the registry automatically</span></i>
+<b>my</b> <span style='color:#0057ae;'>$reg</span> = <b><span style='color:#008000;'>&quot;</span></b><span style='color:#bf0303;'>Bio::EnsEMBL::Registry</span><b><span style='color:#008000;'>&quot;</span></b>;
+<span style='color:#0057ae;'>$reg</span>-&gt;<span style='color:#0057ae;'>load_registry_from_url</span>(<b><span style='color:#008000;'>'</span></b><span style='color:#ff6c6c;'>mysql://anonymous@ensembldb.ensembl.org</span><b><span style='color:#008000;'>'</span></b>);
+
+<i><span style='color:#888786;'>## Get the SliceAdaptor for Human</span></i>
+<b>my</b> <span style='color:#0057ae;'>$slice_adaptor</span> = <span style='color:#0057ae;'>$reg</span>-&gt;<span style='color:#0057ae;'>get_adaptor</span>(<b><span style='color:#008000;'>&quot;</span></b><span style='color:#bf0303;'>Homo sapiens</span><b><span style='color:#008000;'>&quot;</span></b>, <b><span style='color:#008000;'>&quot;</span></b><span style='color:#bf0303;'>core</span><b><span style='color:#008000;'>&quot;</span></b>, <b><span style='color:#008000;'>&quot;</span></b><span style='color:#bf0303;'>Slice</span><b><span style='color:#008000;'>&quot;</span></b>);
+
+<i><span style='color:#888786;'>## Fetch the Slice for the first 20Mb of chr.20</span></i>
+<b>my</b> <span style='color:#0057ae;'>$slice</span> = <span style='color:#0057ae;'>$slice_adaptor</span>-&gt;<span style='color:#0057ae;'>fetch_by_region</span>(<b><span style='color:#008000;'>'</span></b><span style='color:#ff6c6c;'>chromosome</span><b><span style='color:#008000;'>'</span></b>, <b><span style='color:#008000;'>'</span></b><span style='color:#ff6c6c;'>20</span><b><span style='color:#008000;'>'</span></b>, <span style='color:#b08000;'>1</span>, <span style='color:#b08000;'>2</span>_000_000);
+
+<i><span style='color:#888786;'>## Get the genes on that slice (this is a ref. to an array)</span></i>
+<b>my</b> <span style='color:#0057ae;'>$genes</span> = <span style='color:#0057ae;'>$slice</span>-&gt;<span style='color:#0057ae;'>get_all_Genes</span>();
+
+<i><span style='color:#888786;'># Declare this ref to a hash</span></i>
+<b>my</b> <span style='color:#0057ae;'>$biotypes</span> = {};
+
+<b>foreach</b> <b>my</b> <span style='color:#0057ae;'>$this_gene</span> (<span style='color:#0057ae;'>@$genes</span>) {
+  <i><span style='color:#888786;'># Get the biotype for this gene</span></i>
+  <b>my</b> <span style='color:#0057ae;'>$this_biotype</span> = <span style='color:#0057ae;'>$this_gene</span>-&gt;<span style='color:#0057ae;'>biotype</span>;
+  <i><span style='color:#888786;'># Add this gene to the counter</span></i>
+  <span style='color:#0057ae;'>$biotypes</span>-&gt;{<span style='color:#0057ae;'>$this_biotype</span>}++;
+}
+
+<i><span style='color:#888786;'># Print all the biotypes and the corresponding number of genes</span></i>
+<b>while</b> (<b>my</b> (<span style='color:#0057ae;'>$this_biotype</span>, <span style='color:#0057ae;'>$num</span>) = <b>each</b> %<span style='color:#0057ae;'>$biotypes</span>) {
+  <span style='color:#644a9b;'>print</span> <b><span style='color:#008000;'>&quot;</span></b><span style='color:#bf0303;'>There are </span><span style='color:#0057ae;'>$num</span><span style='color:#bf0303;'> </span><span style='color:#0057ae;'>$this_biotype</span><span style='color:#bf0303;'> genes</span><span style='color:#ff80e0;'>\n</span><b><span style='color:#008000;'>&quot;</span></b>;
+}
+</pre>
+</body>
+</html>

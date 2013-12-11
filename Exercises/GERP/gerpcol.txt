@@ -1,0 +1,26 @@
+gpp-gerpcol options:
+
+ -h 	 print help menu
+ -v 	 verbose mode
+ -t <tree filename>
+    	 evolutionary tree
+ -f <filename>
+    	 alignment filename
+ -a 	 alignment in mfa format [default = false]
+ -e <reference seq>
+    	 name of reference sequence
+ -j 	 project out reference sequence
+ -r <ratio>
+    	 Tr/Tv ratio [default = 2.0]
+ -p <precision>
+    	 tolerance for rate estimation [default = 0.001]
+ -z force start at position 0 [default = false]
+ -n <rate>
+    	 tree neutral rate [default = compute from tree]
+ -s <factor>
+    	 tree scaling factor [default = 1.0]
+ -x <suffix>
+    	 suffix for naming output files [default = ".rates"]
+
+Please see README.txt for more information.
+

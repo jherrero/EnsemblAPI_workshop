@@ -1,0 +1,7 @@
+There are 2 lincRNA genes
+There are 5 antisense genes
+There are 1 miRNA genes
+There are 2 misc_RNA genes
+There are 11 pseudogene genes
+There are 38 protein_coding genes
+There are 1 snRNA genes

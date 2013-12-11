@@ -1,0 +1,42 @@
+# Installation
+mkdir -p ~/Downloads
+cd ~/Downloads
+wget http://mendel.stanford.edu/SidowLab/downloads/gerp/gerp++.tar.gz
+cd
+mkdir -p bin
+cd bin
+mkdir -p GERP++
+cd GERP++
+tar -zxvf ~/Downloads/gerp++.tar.gz
+# Change a few include statements (required for succesfull compilation in my linux box)
+sed 's/#include <string>/#include <string>\n#include <stdlib.h>/' -i etree.cc
+sed 's/#include <string>/#include <string>\n#include <stdlib.h>\n#include <algorithm>/' -i gerpcol.cc
+sed 's/#include <string>/#include <string.h>/' -i gerpelem.cc
+make
+
+# Run GERP column analysis: this creates a file with all the scores
+# -t : input tree with branches representing neutral number of substitutions per site
+# -f : input alignment file
+# -a : tell GERP the input file is a multi-fasta file
+# -e : specifies the reference sequence
+# -v : verbose
+~/bin/GERP++/gerpcol -t tree.nw -f pecan.mfa -a -e HUMAN -v
+
+# Run GERP element analysis: this looks for stretches of high conservation in the scores file
+# -f : input scores file (this is the output of gerpcol)
+# -c : chromosome name (for the output)
+# -s : start position (for the output)
+# -x : extension for the output file name
+# -v : verbose
+~/bin/GERP++/gerpelem -f pecan.mfa.rates -c 13 -s 32878016 -x .bed -v
+
+# The final output should be a file named pecan.mfa.rates.elems similar to:
+#
+# 13	32936653	32936837	219.226	2.78626e-39	184	0	0
+# 13	32937309	32937675	305.401	1.18051e-36	550	0	0
+# 13	32884792	32884872	120.241	4.01564e-30	630	0	0
+# 13	32882817	32882910	130.436	1.50146e-29	723	0	0
+# 13	32931876	32932072	195.143	9.16881e-29	919	0	0
+# 13	32945081	32945245	176.88	1.26139e-28	1083	0	0
+#
+# but with many more entries

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="Generator" content="Kate, the KDE Advanced Text Editor" />
+<title>homology2.pl</title>
+</head>
+<body>
+<pre style='color:#141312;background-color:#ffffff;'>
+<b>use</b> <b>strict</b>;
+<b>use</b> <b>warnings</b>;
+
+<b>use</b> <span style='color:#644a9b;'>Bio::EnsEMBL</span>::<span style='color:#644a9b;'>Registry</span>;
+
+<i><span style='color:#888786;'>## Load the registry automatically</span></i>
+<b>my</b> <span style='color:#0057ae;'>$reg</span> = <b><span style='color:#008000;'>&quot;</span></b><span style='color:#bf0303;'>Bio::EnsEMBL::Registry</span><b><span style='color:#008000;'>&quot;</span></b>;
+<span style='color:#0057ae;'>$reg</span>-&gt;<span style='color:#0057ae;'>load_registry_from_url</span>(<b><span style='color:#008000;'>'</span></b><span style='color:#ff6c6c;'>mysql://anonymous@ensembldb.ensembl.org</span><b><span style='color:#008000;'>'</span></b>);
+
+<i><span style='color:#888786;'>## Get the human gene adaptor</span></i>
+<b>my</b> <span style='color:#0057ae;'>$human_gene_adaptor</span> =
+    <span style='color:#0057ae;'>$reg</span>-&gt;<span style='color:#0057ae;'>get_adaptor</span>(<b><span style='color:#008000;'>&quot;</span></b><span style='color:#bf0303;'>Homo sapiens</span><b><span style='color:#008000;'>&quot;</span></b>, <b><span style='color:#008000;'>&quot;</span></b><span style='color:#bf0303;'>core</span><b><span style='color:#008000;'>&quot;</span></b>, <b><span style='color:#008000;'>&quot;</span></b><span style='color:#bf0303;'>Gene</span><b><span style='color:#008000;'>&quot;</span></b>);
+
+<i><span style='color:#888786;'>## Get the compara member adaptor</span></i>
+<b>my</b> <span style='color:#0057ae;'>$member_adaptor</span> =
+    <span style='color:#0057ae;'>$reg</span>-&gt;<span style='color:#0057ae;'>get_adaptor</span>(<b><span style='color:#008000;'>&quot;</span></b><span style='color:#bf0303;'>Multi</span><b><span style='color:#008000;'>&quot;</span></b>, <b><span style='color:#008000;'>&quot;</span></b><span style='color:#bf0303;'>compara</span><b><span style='color:#008000;'>&quot;</span></b>, <b><span style='color:#008000;'>&quot;</span></b><span style='color:#bf0303;'>Member</span><b><span style='color:#008000;'>&quot;</span></b>);
+
+<i><span style='color:#888786;'>## Get the compara homology adaptor</span></i>
+<b>my</b> <span style='color:#0057ae;'>$homology_adaptor</span> =
+    <span style='color:#0057ae;'>$reg</span>-&gt;<span style='color:#0057ae;'>get_adaptor</span>(<b><span style='color:#008000;'>&quot;</span></b><span style='color:#bf0303;'>Multi</span><b><span style='color:#008000;'>&quot;</span></b>, <b><span style='color:#008000;'>&quot;</span></b><span style='color:#bf0303;'>compara</span><b><span style='color:#008000;'>&quot;</span></b>, <b><span style='color:#008000;'>&quot;</span></b><span style='color:#bf0303;'>Homology</span><b><span style='color:#008000;'>&quot;</span></b>);
+
+<i><span style='color:#888786;'>## Get all existing gene object with the name CTDP1</span></i>
+<b>my</b> <span style='color:#0057ae;'>$ctdp1_genes</span> = <span style='color:#0057ae;'>$human_gene_adaptor</span>-&gt;<span style='color:#0057ae;'>fetch_all_by_external_name</span>(<b><span style='color:#008000;'>'</span></b><span style='color:#ff6c6c;'>CTDP1</span><b><span style='color:#008000;'>'</span></b>);
+
+<i><span style='color:#888786;'>## For each of these genes...</span></i>
+<b>foreach</b> <b>my</b> <span style='color:#0057ae;'>$ctdp1_gene</span> (<span style='color:#0057ae;'>@$ctdp1_genes</span>) {
+  <i><span style='color:#888786;'>## Get the compara member</span></i>
+  <b>my</b> <span style='color:#0057ae;'>$member</span> = <span style='color:#0057ae;'>$member_adaptor</span>-&gt;<span style='color:#0057ae;'>fetch_by_source_stable_id</span>(
+      <b><span style='color:#008000;'>&quot;</span></b><span style='color:#bf0303;'>ENSEMBLGENE</span><b><span style='color:#008000;'>&quot;</span></b>, <span style='color:#0057ae;'>$ctdp1_gene</span>-&gt;<span style='color:#0057ae;'>stable_id</span>);
+
+  <i><span style='color:#888786;'>## Get all the homologues in mouse</span></i>
+  <b>my</b> <span style='color:#0057ae;'>$all_homologies</span> = <span style='color:#0057ae;'>$homology_adaptor</span>-&gt;<span style='color:#0057ae;'>fetch_all_by_Member_paired_species</span>(
+      <span style='color:#0057ae;'>$member</span>, <b><span style='color:#008000;'>&quot;</span></b><span style='color:#bf0303;'>mus_musculus</span><b><span style='color:#008000;'>&quot;</span></b>);
+
+  <i><span style='color:#888786;'>## For each homology</span></i>
+  <b>foreach</b> <b>my</b> <span style='color:#0057ae;'>$this_homology</span> (<span style='color:#0057ae;'>@$all_homologies</span>) {
+    <i><span style='color:#888786;'>## print the description (type of homology) and the</span></i>
+    <i><span style='color:#888786;'>## subtype (taxonomy level of the event: duplic. or speciation)</span></i>
+    <span style='color:#644a9b;'>print</span> <span style='color:#0057ae;'>$this_homology</span>-&gt;<span style='color:#0057ae;'>description</span>, <b><span style='color:#008000;'>&quot;</span></b><span style='color:#bf0303;'> [</span><b><span style='color:#008000;'>&quot;</span></b>, <span style='color:#0057ae;'>$this_homology</span>-&gt;<span style='color:#0057ae;'>subtype</span>, <b><span style='color:#008000;'>&quot;</span></b><span style='color:#bf0303;'>]</span><span style='color:#ff80e0;'>\n</span><b><span style='color:#008000;'>&quot;</span></b>;
+
+    <i><span style='color:#888786;'>## get the members in this homology (they are sorted)</span></i>
+    <b>my</b> <span style='color:#0057ae;'>$homologous_members</span> = <span style='color:#0057ae;'>$this_homology</span>-&gt;<span style='color:#0057ae;'>get_all_Members</span>();
+    <b>my</b> (<span style='color:#0057ae;'>$query_member</span>, <span style='color:#0057ae;'>$other_member</span>) = <span style='color:#0057ae;'>@$homologous_members</span>;
+
+    <i><span style='color:#888786;'>## print info about the &quot;other&quot; member</span></i>
+    <span style='color:#644a9b;'>print</span> <span style='color:#0057ae;'>$other_member</span>-&gt;<span style='color:#0057ae;'>source_name</span>, <b><span style='color:#008000;'>&quot;</span></b><span style='color:#bf0303;'> </span><b><span style='color:#008000;'>&quot;</span></b>,
+        <span style='color:#0057ae;'>$other_member</span>-&gt;<span style='color:#0057ae;'>stable_id</span>, <b><span style='color:#008000;'>&quot;</span></b><span style='color:#bf0303;'> </span><b><span style='color:#008000;'>&quot;</span></b>,
+        (<span style='color:#0057ae;'>$other_member</span>-&gt;<span style='color:#0057ae;'>display_label</span> <b><span style='color:#008000;'>or</span></b> <b><span style='color:#008000;'>&quot;&quot;</span></b>), <b><span style='color:#008000;'>&quot;</span></b><span style='color:#bf0303;'> (</span><b><span style='color:#008000;'>&quot;</span></b>,
+        <span style='color:#0057ae;'>$other_member</span>-&gt;<span style='color:#0057ae;'>genome_db</span>-&gt;<span style='color:#0057ae;'>name</span>, <b><span style='color:#008000;'>&quot;</span></b><span style='color:#bf0303;'>)</span><span style='color:#ff80e0;'>\n</span><b><span style='color:#008000;'>&quot;</span></b>;
+    <span style='color:#644a9b;'>print</span> <b><span style='color:#008000;'>&quot;</span></b><span style='color:#ff80e0;'>\n</span><b><span style='color:#008000;'>&quot;</span></b>;
+  }
+}
+</pre>
+</body>
+</html>

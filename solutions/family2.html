@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="Generator" content="Kate, the KDE Advanced Text Editor" />
+<title>family2.pl</title>
+</head>
+<body>
+<pre style='color:#141312;background-color:#ffffff;'>
+<b>use</b> <b>strict</b>;
+<b>use</b> <b>warnings</b>;
+
+<b>use</b> <span style='color:#644a9b;'>Bio::EnsEMBL</span>::<span style='color:#644a9b;'>Registry</span>;
+<b>use</b> <span style='color:#644a9b;'>Bio::SimpleAlign</span>;
+<b>use</b> <span style='color:#644a9b;'>Bio::AlignIO</span>;
+
+<i><span style='color:#888786;'>## Load the registry automatically</span></i>
+<b>my</b> <span style='color:#0057ae;'>$reg</span> = <b><span style='color:#008000;'>&quot;</span></b><span style='color:#bf0303;'>Bio::EnsEMBL::Registry</span><b><span style='color:#008000;'>&quot;</span></b>;
+<span style='color:#0057ae;'>$reg</span>-&gt;<span style='color:#0057ae;'>load_registry_from_url</span>(<b><span style='color:#008000;'>'</span></b><span style='color:#ff6c6c;'>mysql://anonymous@ensembldb.ensembl.org</span><b><span style='color:#008000;'>'</span></b>);
+
+<i><span style='color:#888786;'>## Get the human gene adaptor</span></i>
+<b>my</b> <span style='color:#0057ae;'>$human_gene_adaptor</span> =
+    <span style='color:#0057ae;'>$reg</span>-&gt;<span style='color:#0057ae;'>get_adaptor</span>(<b><span style='color:#008000;'>&quot;</span></b><span style='color:#bf0303;'>Homo sapiens</span><b><span style='color:#008000;'>&quot;</span></b>, <b><span style='color:#008000;'>&quot;</span></b><span style='color:#bf0303;'>core</span><b><span style='color:#008000;'>&quot;</span></b>, <b><span style='color:#008000;'>&quot;</span></b><span style='color:#bf0303;'>Gene</span><b><span style='color:#008000;'>&quot;</span></b>);
+
+<i><span style='color:#888786;'>## Get the compara member adaptor</span></i>
+<b>my</b> <span style='color:#0057ae;'>$member_adaptor</span> =
+    <span style='color:#0057ae;'>$reg</span>-&gt;<span style='color:#0057ae;'>get_adaptor</span>(<b><span style='color:#008000;'>&quot;</span></b><span style='color:#bf0303;'>Multi</span><b><span style='color:#008000;'>&quot;</span></b>, <b><span style='color:#008000;'>&quot;</span></b><span style='color:#bf0303;'>compara</span><b><span style='color:#008000;'>&quot;</span></b>, <b><span style='color:#008000;'>&quot;</span></b><span style='color:#bf0303;'>Member</span><b><span style='color:#008000;'>&quot;</span></b>);
+
+<i><span style='color:#888786;'>## Get the compara family adaptor</span></i>
+<b>my</b> <span style='color:#0057ae;'>$family_adaptor</span> =
+    <span style='color:#0057ae;'>$reg</span>-&gt;<span style='color:#0057ae;'>get_adaptor</span>(<b><span style='color:#008000;'>&quot;</span></b><span style='color:#bf0303;'>Multi</span><b><span style='color:#008000;'>&quot;</span></b>, <b><span style='color:#008000;'>&quot;</span></b><span style='color:#bf0303;'>compara</span><b><span style='color:#008000;'>&quot;</span></b>, <b><span style='color:#008000;'>&quot;</span></b><span style='color:#bf0303;'>Family</span><b><span style='color:#008000;'>&quot;</span></b>);
+
+<i><span style='color:#888786;'>## Get all existing gene object with the name HBEGF</span></i>
+<b>my</b> <span style='color:#0057ae;'>$these_genes</span> = <span style='color:#0057ae;'>$human_gene_adaptor</span>-&gt;<span style='color:#0057ae;'>fetch_all_by_external_name</span>(<b><span style='color:#008000;'>'</span></b><span style='color:#ff6c6c;'>HBEGF</span><b><span style='color:#008000;'>'</span></b>);
+
+<i><span style='color:#888786;'>## For each of these genes...</span></i>
+<b>foreach</b> <b>my</b> <span style='color:#0057ae;'>$this_gene</span> (<span style='color:#0057ae;'>@$these_genes</span>) {
+  <i><span style='color:#888786;'>## Get the compara member</span></i>
+  <b>my</b> <span style='color:#0057ae;'>$member</span> = <span style='color:#0057ae;'>$member_adaptor</span>-&gt;<span style='color:#0057ae;'>fetch_by_source_stable_id</span>(
+      <b><span style='color:#008000;'>&quot;</span></b><span style='color:#bf0303;'>ENSEMBLGENE</span><b><span style='color:#008000;'>&quot;</span></b>, <span style='color:#0057ae;'>$this_gene</span>-&gt;<span style='color:#0057ae;'>stable_id</span>);
+
+  <i><span style='color:#888786;'>## Get all the families</span></i>
+  <b>my</b> <span style='color:#0057ae;'>$all_families</span> = <span style='color:#0057ae;'>$family_adaptor</span>-&gt;<span style='color:#0057ae;'>fetch_all_by_Member</span>(<span style='color:#0057ae;'>$member</span>);
+
+  <i><span style='color:#888786;'>## For each family</span></i>
+  <b>foreach</b> <b>my</b> <span style='color:#0057ae;'>$this_family</span> (<span style='color:#0057ae;'>@$all_families</span>) {
+    <span style='color:#644a9b;'>print</span> <span style='color:#0057ae;'>$this_family</span>-&gt;<span style='color:#0057ae;'>description</span>, <b><span style='color:#008000;'>&quot;</span></b><span style='color:#bf0303;'> (description score = </span><b><span style='color:#008000;'>&quot;</span></b>,
+        <span style='color:#0057ae;'>$this_family</span>-&gt;<span style='color:#0057ae;'>description_score</span>, <b><span style='color:#008000;'>&quot;</span></b><span style='color:#bf0303;'>)</span><span style='color:#ff80e0;'>\n</span><b><span style='color:#008000;'>&quot;</span></b>;
+    <b>my</b> <span style='color:#0057ae;'>$simple_align</span> = <span style='color:#0057ae;'>$this_family</span>-&gt;<span style='color:#0057ae;'>get_SimpleAlign</span>();
+    <b>my</b> <span style='color:#0057ae;'>$alignIO</span> = <span style='color:#644a9b;'>Bio::AlignIO</span>-&gt;newFh(<b><span style='color:#008000;'>-f</span></b>ormat =&gt; <b><span style='color:#008000;'>&quot;</span></b><span style='color:#bf0303;'>clustalw</span><b><span style='color:#008000;'>&quot;</span></b>);
+    <span style='color:#644a9b;'>print</span> <span style='color:#0057ae;'>$alignIO</span> <span style='color:#0057ae;'>$simple_align</span>;
+  }
+}
+</pre>
+</body>
+</html>

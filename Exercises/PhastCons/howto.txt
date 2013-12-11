@@ -1,0 +1,13 @@
+# Run PhastCons
+../bin/phast/bin/phastCons -i MAF tba_human.maf --rho 0.3 phyloFit.mod --most-conserved human_phastCons.bed -n
+
+# The output will be the human_phastCons.bed file, a BED-like file:
+#
+# tba_human       32878022        32878162        tba_human.1     0       +
+# tba_human       32882815        32882909        tba_human.2     0       +
+# tba_human       32884771        32884871        tba_human.3     0       +
+# tba_human       32885727        32885889        tba_human.4     0       +
+# tba_human       32893196        32893297        tba_human.5     0       +
+#
+# but with more entries
+

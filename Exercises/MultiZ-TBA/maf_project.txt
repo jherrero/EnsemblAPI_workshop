@@ -1,0 +1,2 @@
+maf_project.v12:  -- extract maf-file entries that name a given reference sequence.
+args: file.maf reference [from to]                            [filename-for-other-mafs] [species-guid-tree] [nohead]

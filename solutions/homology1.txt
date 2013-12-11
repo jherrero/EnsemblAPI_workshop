@@ -1,0 +1,135 @@
+ortholog_one2one [Homininae]
+ENSEMBLGENE ENSPTRG00000005766 Q8HZQ1_PANTR (pan_troglodytes)
+
+ortholog_one2one [Hominidae]
+ENSEMBLGENE ENSPPYG00000005264 BRCA2 (pongo_pygmaeus)
+
+ortholog_one2one [Homininae]
+ENSEMBLGENE ENSGGOG00000015808 BRCA2 (gorilla_gorilla)
+
+ortholog_one2one [Catarrhini]
+ENSEMBLGENE ENSMMUG00000007197 BRCA2 (macaca_mulatta)
+
+ortholog_one2one [Simiiformes]
+ENSEMBLGENE ENSCJAG00000018462 BRCA2 (callithrix_jacchus)
+
+ortholog_one2one [Primates]
+ENSEMBLGENE ENSMICG00000011994 BRCA2 (microcebus_murinus)
+
+ortholog_one2one [Haplorrhini]
+ENSEMBLGENE ENSTSYG00000000478 BRCA2 (tarsius_syrichta)
+
+ortholog_one2one [Eutheria]
+ENSEMBLGENE ENSECAG00000014890 LOC100064578 (equus_caballus)
+
+ortholog_one2one [Eutheria]
+ENSEMBLGENE ENSTTRG00000010541 BRCA2 (tursiops_truncatus)
+
+ortholog_one2one [Primates]
+ENSEMBLGENE ENSOGAG00000010588 BRCA2 (otolemur_garnettii)
+
+ortholog_one2one [Eutheria]
+ENSEMBLGENE ENSVPAG00000000886 BRCA2 (vicugna_pacos)
+
+ortholog_one2one [Euarchontoglires]
+ENSEMBLGENE ENSTBEG00000015907 BRCA2 (tupaia_belangeri)
+
+ortholog_one2one [Eutheria]
+ENSEMBLGENE ENSAMEG00000009390 D2H8U3_AILME (ailuropoda_melanoleuca)
+
+ortholog_one2one [Euarchontoglires]
+ENSEMBLGENE ENSSTOG00000005517 BRCA2 (spermophilus_tridecemlineatus)
+
+ortholog_one2one [Eutheria]
+ENSEMBLGENE ENSCAFG00000006383 NP_001006654.2 (canis_familiaris)
+
+ortholog_one2one [Eutheria]
+ENSEMBLGENE ENSBTAG00000000988 BRCA2 (bos_taurus)
+
+ortholog_one2one [Eutheria]
+ENSEMBLGENE ENSCHOG00000008817 BRCA2 (choloepus_hoffmanni)
+
+ortholog_one2one [Euarchontoglires]
+ENSEMBLGENE ENSOCUG00000016878 BRCA2 (oryctolagus_cuniculus)
+
+ortholog_one2one [Eutheria]
+ENSEMBLGENE ENSSSCG00000009340 BRCA2 (sus_scrofa)
+
+ortholog_one2one [Eutheria]
+ENSEMBLGENE ENSDNOG00000017393 BRCA2 (dasypus_novemcinctus)
+
+ortholog_one2one [Eutheria]
+ENSEMBLGENE ENSMLUG00000013741 BRCA2 (myotis_lucifugus)
+
+ortholog_one2one [Eutheria]
+ENSEMBLGENE ENSPVAG00000000246 BRCA2 (pteropus_vampyrus)
+
+ortholog_one2one [Euarchontoglires]
+ENSEMBLGENE ENSCPOG00000005153 BRCA2 (cavia_porcellus)
+
+ortholog_one2one [Euarchontoglires]
+ENSEMBLGENE ENSDORG00000007049 Brca2 (dipodomys_ordii)
+
+ortholog_one2one [Eutheria]
+ENSEMBLGENE ENSEEUG00000009739 BRCA2 (erinaceus_europaeus)
+
+ortholog_one2one [Eutheria]
+ENSEMBLGENE ENSLAFG00000002670 BRCA2 (loxodonta_africana)
+
+ortholog_one2one [Eutheria]
+ENSEMBLGENE ENSSARG00000002755 BRCA2 (sorex_araneus)
+
+ortholog_one2one [Euarchontoglires]
+ENSEMBLGENE ENSOPRG00000015365 BRCA2 (ochotona_princeps)
+
+ortholog_one2one [Euarchontoglires]
+ENSEMBLGENE ENSMUSG00000041147 Brca2 (mus_musculus)
+
+ortholog_one2one [Euarchontoglires]
+ENSEMBLGENE ENSRNOG00000001111 Brca2 (rattus_norvegicus)
+
+ortholog_one2one [Eutheria]
+ENSEMBLGENE ENSETEG00000003989 BRCA2 (echinops_telfairi)
+
+ortholog_one2one [Eutheria]
+ENSEMBLGENE ENSPCAG00000000379 BRCA2 (procavia_capensis)
+
+ortholog_one2one [Theria]
+ENSEMBLGENE ENSMEUG00000010691 BRCA2 (macropus_eugenii)
+
+ortholog_one2one [Theria]
+ENSEMBLGENE ENSMODG00000009516 A4ZZ89_MONDO (monodelphis_domestica)
+
+ortholog_one2one [Mammalia]
+ENSEMBLGENE ENSOANG00000015481 BRCA2 (ornithorhynchus_anatinus)
+
+ortholog_one2many [Amniota]
+ENSEMBLGENE ENSACAG00000004541  (anolis_carolinensis)
+
+ortholog_one2one [Tetrapoda]
+ENSEMBLGENE ENSXETG00000017011 brca2 (xenopus_tropicalis)
+
+ortholog_one2one [Amniota]
+ENSEMBLGENE ENSGALG00000017073 Q8QFV6_CHICK (gallus_gallus)
+
+ortholog_one2one [Amniota]
+ENSEMBLGENE ENSTGUG00000011763 BRCA2 (taeniopygia_guttata)
+
+ortholog_one2many [Amniota]
+ENSEMBLGENE ENSACAG00000004593  (anolis_carolinensis)
+
+ortholog_one2one [Euteleostomi]
+ENSEMBLGENE ENSGACG00000011490 BRCA2 (gasterosteus_aculeatus)
+
+ortholog_one2one [Euteleostomi]
+ENSEMBLGENE ENSTRUG00000006177 BRCA2 (takifugu_rubripes)
+
+ortholog_one2one [Euteleostomi]
+ENSEMBLGENE ENSTNIG00000016261 A5JSV3_TETNG (tetraodon_nigroviridis)
+
+ortholog_one2one [Euteleostomi]
+ENSEMBLGENE ENSORLG00000003832 BRCA2 (oryzias_latipes)
+
+ortholog_one2one [Euteleostomi]
+ENSEMBLGENE ENSDARG00000079015 brca2 (danio_rerio)
+

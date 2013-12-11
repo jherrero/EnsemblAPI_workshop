@@ -1,0 +1,4 @@
+# Run PECAN (might require some extra memory)
+java -cp ${PECAN_PATH}/pecan_v0.8.jar bp.pecan.Pecan -E "((((HUMAN,(MOUSE,RAT)),COW),OPOSSUM),CHICKEN);" -F human.fa mouse.fa rat.fa cow.fa opossum.fa chicken.fa -G pecan.mfa
+
+# The output will be the pecan.mfa file, a multi-fasta alignment file.

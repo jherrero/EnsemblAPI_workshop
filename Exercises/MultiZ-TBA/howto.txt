@@ -1,0 +1,23 @@
+export PATH=${PATH}:${MULTIZ_TBA_DIR}
+export PATH=${PATH}:${BLASTZ_DIR}
+
+# Run all pairwise alignments, with default parameters:
+all_bz + F=HUMAN "((((HUMAN (MOUSE RAT)) COW) OPOSSUM) CHICKEN)"
+
+# To see the list of all pairwise MAF files
+ls -ltr
+
+# To see the difference after removing overlaps
+diff HUMAN.RAT.orig.maf HUMAN.RAT.sing.maf 
+
+# Build the multiple alignments
+tba "((((HUMAN (MOUSE RAT)) COW) OPOSSUM) CHICKEN)" *.sing.maf tba_all.maf
+
+# Project them on human
+maf_project tba_all.maf HUMAN > tba_human.maf
+
+# The output will be a maf file with a fairly large amount of comment lines at the beginning.
+# All the blocks should have a HUMAN entry. Check that by comparing the result of (148 in my test):
+grep -c "a score" tba_human.maf
+grep -c "s HUMAN" tba_human.maf
+

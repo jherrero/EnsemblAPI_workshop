@@ -1,0 +1,206 @@
+
+USAGE: msa_split [OPTIONS] <fname> 
+
+DESCRIPTION:
+
+    Partitions a multiple sequence alignment either at designated
+    columns, or according to specified category labels, and outputs
+    sub-alignments for the partitions.  Optionally splits an
+    associated annotations file.
+
+EXAMPLES:
+
+    (See below for details on options)
+
+    1. Read an alignment for a whole human chromosome from a MAF file
+    and extract sub-alignments in 1Mb windows overlapping by 1kb.  Use
+    sufficient statistics (SS) format for output (can be used by
+    phyloFit, phastCons, or exoniphy).  Set window boundaries between
+    alignment blocks, if possible.
+
+        msa_split chr1.maf --refseq chr1.fa --in-format MAF \
+            --windows 1000000,1000 --out-format SS \
+            --between-blocks 5000 --out-root chr1
+
+    (Windows will be defined using the coordinate system of the first
+    sequence in the alignment, assumed to be the reference sequence;
+    output will be to chr1.1-1000000.ss, chr1.999001-1999000.ss, ...)
+
+    2. As in (1), but report unordered sufficient statistics (much
+    more compact and adequate for use with phyloFit).
+
+        msa_split chr1.maf --refseq chr1.fa --in-format MAF \
+            --windows 1000000,1000 --out-format SS \
+            --between-blocks 5000 --out-root chr1 --unordered-ss
+
+    3. Extract sub-alignments of sites in conserved elements and not
+    in conserved elements, as defined by a BED file (coordinates
+    assumed to be for 1st sequence).  Read multiple alignment in FASTA
+    format.
+
+        msa_split mydata.fa --features conserved.bed --by-category \
+            --out-root mydata
+
+    (Output will be to mydata.background-0.fa and mydata.bed_feature-1.fa
+    [latter has sites of category number 1, defined by bed file]
+
+    3. Extract sub-alignments of sites in each of the three codon
+    positions, as defined by a GFF file (coordinates assumed to be for
+    1st sequence).  Reverse complement genes on minus strand.
+
+        msa_split chr22.maf --in-format MAF --features chr22.gff \
+            --by-category --catmap "NCATS 3 ; CDS 1-3" --do-cats CDS \
+            --reverse-compl --out-root chr22 --out-format SS
+
+    (Output will be to chr22.cds-1.ss, chr22.cds-2.ss, chr22.cds-3.ss)
+
+    4. Split an alignment into pieces corresponding to the genes in a
+    GFF file.  Assume genes are defined by the tag "transcript_id".
+
+        msa_split cftr.fa --features cftr.gff --by-group transcript_id
+
+    5. Obtain a sub-alignment for each of a set of regulatory regions,
+    as defined in a BED file.
+
+        msa_split chr22.maf --refseq chr22.fa --features chr22.reg.bed \
+            --for-features --out-root chr22.reg
+
+OPTIONS:
+
+ (Splitting options)
+    --windows, -w <win_size,win_overlap>
+        Split the alignment into "windows" of size <win_size> bases,
+        overlapping by <win_overlap>.
+
+    --by-category, -L
+        (Requires --features) Split by category, as defined by
+        annotations file and (optionally) category map (see
+        --catmap)
+
+    --by-group, -P <tag>
+        (Requires --features) Split by groups in annotation file,
+        as defined by specified tag.  Splits midway between every
+        pair of consecutive groups.  Features will be sorted by group.
+        There should be no overlapping features (see 'refeature
+        --unique').
+
+    --for-features, -F
+        (Requires --features) Extract section of alignment
+        corresponding to every feature.  There will be no output for
+        regions not covered by features.
+
+    --by-index, -p <indices>
+        List of explicit indices at which to split alignment
+        (comma-separated).  If the list of indices is "10,20",
+        then sub-alignments will be output for sites 1-9, 10-19, and
+        20-<msa_len>.
+
+    --npartitions, -n <number>
+        Split alignment equally into specified number of partitions.
+
+    --between-blocks, -B <radius>
+        (Not for use with --by-category or --for-features) Try to
+        partition at sites between alignment blocks.  Assumes a
+        reference sequence alignment, with the first sequence as the
+        reference seq (as created by multiz).  Blocks of 30 sites with
+        gaps in all sequences but the reference seq are assumed to
+        indicate boundaries between alignment blocks.  Partition
+        indices will not be moved more than <radius> sites.
+
+    --features, -g <fname>
+        (For use with --by-category, --by-group, --for-features, or 
+	--windows) Annotations file.  May be GFF, BED, or genepred
+        format.  Coordinates are assumed to be in the coordinate frame of 
+        the first sequence in the alignment (assumed to be the reference
+        sequence).
+
+    --catmap, -c <fname>|<string>
+        (Optionally use with --by-category) Mapping of feature types
+        to category numbers.  Can either give a filename or an
+        "inline" description of a simple category map, e.g.,
+        --catmap "NCATS = 3 ; CDS 1-3" or --catmap "NCATS = 1 ; UTR
+        1".
+
+    --refidx, -d <frame_index>
+        (For use with --windows or --by-index) Index of frame of
+        reference for split indices.  Default is 1 (1st sequence
+        assumed reference).
+
+ (File names & formats, type of output, etc.)
+    --in-format, -i FASTA|PHYLIP|MPM|MAF|SS
+        Input alignment file format.  Default is FASTA.
+
+    --refseq, -M <fname>
+        (For use with --in-format MAF) Name of file containing
+        reference sequence, in FASTA format.
+
+    --out-format, -o FASTA|PHYLIP|MPM|SS
+        Output alignment file format.  Default is FASTA.
+
+    --out-root, -r <name>
+        Filename root for output files (default "msa_split").
+
+    --sub-features, -f
+	(For use with --features)  Output subsets of features
+	corresponding to subalignments.  Features overlapping
+	partition boundaries will be discarded.  Not permitted with
+	--by-category.
+
+    --reverse-compl, -s
+        Reverse complement all segments having at least one feature on
+        the reverse strand and none on the positive strand.  For use
+        with --by-group.  Can also be used with --by-category to ensure
+        all sites in a category are represented in the same strand
+        orientation.
+
+    --gap-strip, -G ALL|ANY|<seqno>
+        Strip columns in output alignments containing all gaps, any
+        gaps, or gaps in the specified sequence (<seqno>; indexing
+        begins with one).  Default is not to strip any columns.
+
+    --seqs, -l <seq_list>
+        Include only specified sequences in output.  Indicate by 
+        sequence number or name (numbering starts with 1 and is
+        evaluated *after* --order is applied).
+
+    --exclude, -x
+        Exclude rather than include specified sequences.
+
+    --order, -O <name_list>
+        Change order of rows in alignment to match sequence names
+        specified in name_list.  If a name appears in name_list but
+        not in the alignment, a row of gaps will be inserted.
+
+    --min-informative, -I <n> 
+        Only output alignments having at least <n> informative sites
+        (sites at which at least two non-gap and non-N gaps are present).
+
+    --do-cats, -C <cat_list>
+        (For use with --by-category) Output sub-alignments for only the
+        specified categories (column-delimited list).
+
+    --tuple-size, -T <tuple_size>
+        (for use with --by-category or --out-format SS) Size of tuples
+        of columns to consider in downstream analysis (e.g., with
+        context-dependent phylogenetic models; see 'phyloFit').  With
+        --by-category, insert tuple_size-1 columns of missing data
+        between sites that were not adjacent in the original alignment,
+        to avoid creating artificial context.  With --out-format SS,
+        express sufficient statistics in terms of tuples of specified size.
+
+    --unordered-ss, -z  
+        (For use with --out-format SS)  Suppress the portion of the
+        sufficient statistics concerned with the order in which columns
+        appear.
+
+    --summary, -S 
+        Output summary of each output alignment to a file with suffix
+        ".sum" (includes base frequencies and numbers of gapped columns).
+
+ (Other)
+    --quiet, -q
+        Proceed quietly.
+
+    --help, -h
+        Print this help message.
+

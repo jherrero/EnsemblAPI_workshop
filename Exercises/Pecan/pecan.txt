@@ -1,0 +1,64 @@
+Pecan [MODIFIER ARGUMENTS]:
+This is an anchored, consistency based multiple alignment 
+program written by Benedict Paten. Mail to bjp (AT) ebi.ac.uk
+Arguments:
+	-A	Set logging
+	-B	Set the log file (default = %t/bp.log)
+	-C	Set the logging level
+	-D	Set the console log level
+	-E	Newick tree for sequences, unspecified distances are given the value 1.0
+	-F	Sequence files in fasta format
+	-G	File in which to write multi-fasta formatted output, default : output.mfa
+	-H	Word length of Exonerate hits for recursive divide and conquer with more leniant parameters, default :  5 8 11 
+	-I	Basic command upon which exonerate is run, default :  --showcigar true --showvulgar false --showalignment false --querytype dna --targettype dna 
+	-J	Path to exonerate, default : exonerate
+	-K	Consistency transform the chains between sequences, default :  false true true 
+	-L	Amount of edge to trim from diagonals, default : 3
+	-M	Rescore alignments, default (flip): false
+	-N	Exonerate min scores for recursive divide and conquer with more leniant parameters, default :  100 150 200 
+	-O	Tell Exonerate sequences are softmasked for recursive divide and conquer with more leniant parameters, default :  false true true 
+	-P	Exonerate saturate threshold, default : 8
+	-Q	Use Exonerate gapped extension mode for recursive divide and conquer with more leniant parameters, default :  false false false 
+	-R	Max distances for recursive divide and conquer with more leniant parameters, default :  20000 664000 2147483647 
+	-S	Exonerate models for recursive divide and conquer with more leniant parameters, default :  affine:local affine:local affine:local 
+	-T	Min distance for exonerate, default : 200
+	-U	Relative entropy threshold below which alignments are discarded, default : 0.65
+	-V	Perform pre-alignment with coding2coding model, default : false
+	-W	Specify hmm file, default : null
+	-X	Transitive anchors, (flip) default : false
+	-Y	Width in diagonals surrounding transitive anchors, default : 10
+	-Z	Width in diagonals surrounding standard anchors, default : 10
+	-a	Size of diagonal sufficient to generate a potential cut point, default : 4
+	-b	The minumum number of diagonal coordinates (x+y) between a cut point and the computed polygon, default : 15
+	-c	The minumum number of diagonal coordinates (x+y) between a cut point and the next one, default : 500
+	-d	Consistency transformation, default : true
+	-e	Threshold for weights to be used in calculations, default : 0.01
+	-f	Use direct byte buffers (flip), default : true
+	-g	Set a minimum capacity for the weight heap (bytes), default : 1000000
+	-h	Pre close gaps larger than this length, default : 10000
+	-i	Size of overhanging border (per sequence) into pre-closed gaps, default : 4500
+	-j	Outgroup reordering diagonals distance (per sequence, internal parameter), default : 500
+	-k	Use HMM with junk state, default : true
+	-l	Output confidence values, default : false
+	-m	Include not aligned probabilities in confidence value, default : true
+	-n	Include formated confidence values in MFA file, default : false
+	-o	Write out a seperate confidence values file, default : true
+	-p	File to write out confidence values, default : confidence.txt
+	-q	Threshold weights according to the probability of a position being aligned to a  gap, like the AMAP program (doesn't work with consistency -- must turn consistency off), default : false
+	-r	Multiple by which gap alignment probability is judged (increase to infer more gaps, decrease to infer less), default : 1.0
+	-s	Load constraining alignment from file (the final alignment will include all pairs in this alignment), default : false
+	-t	Name of the constraining input alignment, default : constraints.txt
+	-u	Output the alignment-to-gap probabilities for each residue in each sequence in the alignment, default : false
+	-v	Alignment-to-gap probabilities file, default : gaps.txt
+	-w	Output top N alignment posterior probas to file (if you unwant modified probs turn off the consistency transform), default : false
+	-x	The maximum number of posterior probs to write to file, default : 100000
+	-y	File in which to write alignment pair probs, default : pairprobs.txt
+-----------
+Boolean (yes/no) parameters can be flipped from their defaults by specifying them as command line option
+Please prefix numerical values starting with a '-' in braces with a '/'
+The following options to the java vm may be useful:
+	java -Xmx[megabytes]m : max memory for the virtual machine
+	''   -Xms[megabytes]m : min memory to the virtual machine
+	''   -server : start the vm in server rather than client mode,
+	     maybe faster, may have larger memory requirements 
+	     and slower start up 

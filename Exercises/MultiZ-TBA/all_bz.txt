@@ -1,0 +1,14 @@
+all_bz.v15: -- generate all blastz commands for pairs of specified sequences.
+args: [-+] [b=?] [A=?] [F=reference] [T=annotation-file] [h=?] [q=?] [D=?] [f=?] species-guid-tree [blastz_specfile]
+	+(off) verbose
+	-(off) output command only.
+	b(2) 0: run post-process only 1: run blastzWrapper only, transform to maf 2: run both
+	A(1) 0: toast 1: single_cov2 2: toast, following by chain and single cov on reference
+	F(null) null: single coverage is done for both species; reference: single coverage is done for reference only, effective in single_cov2
+	T(null): annotation file path and name, used for running toast and chaining procedure
+	h(300) minimum chaining size, effective in toast
+	q(600) minimum cluster size, effective in toast
+	D(1) 0: run all_bz for roast 1: run all_bz for TBA.
+	c(500): parameter transfered to blastz_clean, alignments closer than c are subjected to be cleaned.
+	f(2) x% is used for determine in-paralogs, effective in toast.
+
