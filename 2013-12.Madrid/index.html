@@ -8,42 +8,43 @@
         
         <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/stylesheet.css">
             
-            <title id=doctitle>Ensembl API workshop</title>
+            <title id=doctitle>Course main page</title>
             </head>
     
     <body>
-<script type="text/javascript">
-    $(document).ready(function() {
-                      $("#header_wrap").load("header.html");
-                      title = document.title;
-                      $('#doctitle').load("title.txt", '', function(data) {
-                                          if ($(this).text() != title) {
-                                          document.title = $(this).text() + " - " + title
-                                          }
-                                          });
-                      
-                      });
-</script>
+        <script type="text/javascript" src="http://www.ebi.ac.uk/inc/js/jquery.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                              $("#header_wrap").load("header.html");
+                              title = document.title;
+                              $('#doctitle').load("title.txt", '', function(data) {
+                                                  if ($(this).text() != title) {
+                                                  document.title = $(this).text() + " - " + title
+                                                  }
+                                                  });
+                              
+                              });
+            </script>
+        
+        <!-- HEADER -->
+        <div id="header_wrap" class="outer">
+            <header class="inner">
+                <a id="forkme_banner" href="https://github.com/jherrero/EnsemblAPI_workshop/tree/2013-12.Madrid">View on GitHub</a>
+                
+                <h1 id="project_title">This Workshop</h1>
+                
+                <section id="downloads">
+                    <a class="zip_download_link" href="https://github.com/jherrero/EnsemblAPI_workshop/zipball/master">Download this project as a .zip file</a>
+                    <a class="tar_download_link" href="https://github.com/jherrero/EnsemblAPI_workshop/tarball/master">Download this project as a tar.gz file</a>
+                </section>
+            </header>
+        </div>
+        
+        <!-- MAIN CONTENT -->
+        <div id="main_content_wrap" class="outer">
+            <section id="main_content" class="inner">
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/jherrero/EnsemblAPI_workshop/tree/2013-12.Madrid">View on GitHub</a>
-
-          <h1 id="project_title">This Workshop
-          <h2 id="project_tagline">Genomes and Comparative Genomics</h3>
-          <p class="red_bold">Madrid, December 2013</p>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/jherrero/EnsemblAPI_workshop/archive/2013-12.Madrid.zip">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/jherrero/EnsemblAPI_workshop/archive/2013-12.Madrid.tar.gz">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
+<p><strong>Main page</strong></p>
 
 
 <h2>Programme Overview</h2>
