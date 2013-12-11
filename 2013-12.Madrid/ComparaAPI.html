@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset='utf-8' />
+        <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+        <meta name="description" content="Ensembl API workshop : Ensembl core API, Whole-genome alignments, Ensembl compara API (genomic alignments)" />
+        
+        <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/stylesheet.css">
+            
+            <title id=doctitle>Compara API Exercises</title>
+            </head>
+    
+    <body>
+        <script type="text/javascript" src="http://www.ebi.ac.uk/inc/js/jquery.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                              $("#header_wrap").load("header.html");
+                              title = document.title;
+                              $('#doctitle').load("title.txt", '', function(data) {
+                                                  if ($(this).text() != title) {
+                                                  document.title = $(this).text() + " - " + title
+                                                  }
+                                                  });
+                              
+                              });
+            </script>
+        
+        <!-- HEADER -->
+        <div id="header_wrap" class="outer">
+            <header class="inner">
+                <a id="forkme_banner" href="https://github.com/jherrero/EnsemblAPI_workshop/tree/2013-12.Madrid">View on GitHub</a>
+                
+                <h1 id="project_title">This Workshop</h1>
+                
+                <section id="downloads">
+                    <a class="zip_download_link" href="https://github.com/jherrero/EnsemblAPI_workshop/zipball/master">Download this project as a .zip file</a>
+                    <a class="tar_download_link" href="https://github.com/jherrero/EnsemblAPI_workshop/tarball/master">Download this project as a tar.gz file</a>
+                </section>
+            </header>
+        </div>
+        
+        <!-- MAIN CONTENT -->
+        <div id="main_content_wrap" class="outer">
+            <section id="main_content" class="inner">
+                
+<p><a href="index.html">Main page</a> &gt; <strong>Core API Exercises</strong></p>
+
+
+<h3>GenomeDB</h3>
+<p>A GenomeDB is used to link the Compara database to each of the Core species databases.</p>
+<h5>1. <u>Print the name, assembly version and genebuild version for all the GenomeDBs in the compara DB</u></h5>
+<ul>
+    <li>Solution:  [
+        <a href="https://github.com/jherrero/EnsemblAPI_workshop/blob/2013-12.Madrid/solutions/genome_db1.pl">GitHub</a>
+        |
+        <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/genome_db1.pl">text</a>
+        ]
+        [
+        <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/genome_db1.txt">output</a>
+        ]</li>
+</ul>
+<p></p>
+<h3>DnaFrag</h3>
+<p>A DnaFrag represents a top-level SeqRegion in the Compara database</p>
+<h5>1. <u>Print all the DnaFrags for chimp</u></h5>
+<ul>
+    <li>Solution 1: [
+        <a href="https://github.com/jherrero/EnsemblAPI_workshop/blob/2013-12.Madrid/solutions/dnafrag1.pl">GitHub</a>
+        |
+        <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/dnafrag1.pl">text</a>
+        ]
+        [
+        <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/dnafrag1.txt">output</a>
+        ]</li>
+</ul>
+
+<h3>MethodLinkSpeciesSet</h3>
+<p>The MethodLinkSpeciesSet is a central component in the Compara database, it stores information connecting the various analyses (method) with a set of species (species_set_obj)</p>
+<h5>1. <u>Print the total number of MethodLinkSpeciesSet entries stored in the database</u></h5>
+<h5>2. <u>Print a unique list of method_link_types and a count of their number in the database</u></h5>
+<h5>3. <u>Print a list of the species and their internal Ids (dbIDs) for the 12 eutherian mammal EPO alignments</u></h5>
+<ul>
+    <li>Solution 1: [
+        <a href="https://github.com/jherrero/EnsemblAPI_workshop/blob/2013-12.Madrid/solutions/method_link_species_set1.pl">GitHub</a>
+        |
+        <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/method_link_species_set1.pl">text</a>
+        ]
+        [
+        <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/method_link_species_set1.txt">output</a>
+        ]</li>
+    <li>Solution 2: [
+        <a href="https://github.com/jherrero/EnsemblAPI_workshop/blob/2013-12.Madrid/solutions/method_link_species_set2.pl">GitHub</a>
+        |
+        <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/method_link_species_set2.pl">text</a>
+        ]
+        [
+        <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/method_link_species_set2.txt">output</a>
+        ]</li>
+    <li>Solution 3: [
+        <a href="https://github.com/jherrero/EnsemblAPI_workshop/blob/2013-12.Madrid/solutions/method_link_species_set3.pl">GitHub</a>
+        |
+        <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/method_link_species_set3.pl">text</a>
+        ]
+        [
+        <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/method_link_species_set3.txt">output</a>
+        ]</li>
+</ul>
+
+<h3>GenomicAlignBlock</h3>
+<p>A GenomicAlignBlock represents an alignment between two or more pieces of DNA. Every piece of DNA is represented by a GenomicAlign</p>
+<h5>1. <u>Print the LASTZ_NET alignments for pig chromosome 15 with cow</u></h5>
+<p>Use pig coordinates 89151597 and 89157190 for this exercise.</p>
+
+<h5>2. <u>Change the above example so that it prints the alignments for the 12 eutherian mammals EPO</u></h5>
+<ul>
+    <li>Solution 1:
+        <ul>
+			<li>option a: [
+                <a href="https://github.com/jherrero/EnsemblAPI_workshop/blob/2013-12.Madrid/solutions/genomic_align_block1a.pl">GitHub</a>
+                |
+                <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/genomic_align_block1a.pl">text</a>
+                ]
+                [
+                <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/genomic_align_block1a.txt">output</a>
+                ]</li>
+			<li>option b: [
+                <a href="https://github.com/jherrero/EnsemblAPI_workshop/blob/2013-12.Madrid/solutions/genomic_align_block1b.pl">GitHub</a>
+                |
+                <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/genomic_align_block1b.pl">text</a>
+                ]
+                [
+                <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/genomic_align_block1b.txt">output</a>
+                ]</li>
+        </ul></li>
+    <li>Solution 2: [
+        <a href="https://github.com/jherrero/EnsemblAPI_workshop/blob/2013-12.Madrid/solutions/genomic_align_block2.pl">GitHub</a>
+        |
+        <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/genomic_align_block2.pl">text</a>
+        ]
+        [
+        <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/genomic_align_block2.txt">output</a>
+        ]</li>
+</ul>
+
+<h3>ConstrainedElements</h3>
+<p>A Constrained Element represents regions in the multiple alignment which appear to be under evolutionary constraint.</p>
+<h5>1. <u>Print the constrained element alignments from the previous pig locus</u></h5>
+<p>Use the Constrained elements generated from the EPO_LOW_COVERGAGE mammals alignments.</p>
+<ul>
+    <li>Solution 1: [
+        <a href="https://github.com/jherrero/EnsemblAPI_workshop/blob/2013-12.Madrid/solutions/constrained_element1.pl">GitHub</a>
+        |
+        <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/constrained_element1.pl">text</a>
+        ]
+        [
+        <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/constrained_element1.txt">output</a>
+        ]</li>
+</ul>
+
+<h3>Synteny</h3>
+<p></p>
+<h5>1. <u>Print the pig-cow syntenic map for the pig chr. 15</u></h5>
+<ul>
+    <li>Solution 1: [
+        <a href="https://github.com/jherrero/EnsemblAPI_workshop/blob/2013-12.Madrid/solutions/synteny1.pl">GitHub</a>
+        |
+        <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/synteny1.pl">text</a>
+        ]
+        [
+        <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/synteny1.txt">output</a>
+        ]</li>
+</ul>
+<p></p>
+
+
+
+
+            </section>
+        </div>
+        
+        <!-- FOOTER  -->
+        <div id="footer_wrap" class="outer">
+            <footer class="inner">
+                <p class="copyright">Ensembl API workshop maintained by <a href="https://github.com/jherrero">jherrero</a></p>
+                <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+            </footer>
+        </div>
+        
+        
+        
+    </body>
+</html>

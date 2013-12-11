@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset='utf-8' />
+        <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+        <meta name="description" content="Ensembl API workshop : Ensembl core API, Whole-genome alignments, Ensembl compara API (genomic alignments)" />
+        
+        <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/stylesheet.css">
+            
+            <title id=doctitle>Ensembl core API Exercises</title>
+            </head>
+    
+    <body>
+        <script type="text/javascript" src="http://www.ebi.ac.uk/inc/js/jquery.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                              $("#header_wrap").load("header.html");
+                              title = document.title;
+                              $('#doctitle').load("title.txt", '', function(data) {
+                                                  if ($(this).text() != title) {
+                                                  document.title = $(this).text() + " - " + title
+                                                  }
+                                                  });
+                              
+                              });
+            </script>
+        
+        <!-- HEADER -->
+        <div id="header_wrap" class="outer">
+            <header class="inner">
+                <a id="forkme_banner" href="https://github.com/jherrero/EnsemblAPI_workshop/tree/2013-12.Madrid">View on GitHub</a>
+                
+                <h1 id="project_title">This Workshop</h1>
+                
+                <section id="downloads">
+                    <a class="zip_download_link" href="https://github.com/jherrero/EnsemblAPI_workshop/zipball/master">Download this project as a .zip file</a>
+                    <a class="tar_download_link" href="https://github.com/jherrero/EnsemblAPI_workshop/tarball/master">Download this project as a tar.gz file</a>
+                </section>
+            </header>
+        </div>
+        
+        <!-- MAIN CONTENT -->
+        <div id="main_content_wrap" class="outer">
+            <section id="main_content" class="inner">
+                
+<p><a href="index.html">Main page</a> &gt; <strong>Core API Exercises</strong></p>
+
+<h3>1. The Registry</h3>
+<p>Create a script that uses the function load_registry_from_db to load all databases into the registry and print the names of the databases loaded.</p>
+
+<p><strong>HINT:</strong> Use the verbose option.</p>
+<p></p>
+<h5><u>Solutions</u></h5>
+<ul>
+    <li>Exercise 1: [
+        <a href="https://github.com/jherrero/EnsemblAPI_workshop/blob/2013-12.Madrid/solutions/core1.pl">GitHub</a>
+        |
+        <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/core1.pl">text</a>
+        ]
+        [
+        <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/core1.txt">output</a>
+        ]</li>
+</ul>
+<p></p>
+
+<h3>2. Slices</h3>
+
+<h5>a) <u>Fetch the sequence of chromosome 20 from 100,000 to 110,000</u></h5>
+<ul>
+    <li><u>Basic</u>: Get the DNA sequence of the chromosome Slice
+        <br/>
+        <br/>
+        <strong>HINT:</strong> Fetch the Bio::EnsEMBL::Slice for this region and use the seq() method to retrieve the sequence.
+        <br/>
+        <br/>
+    </li>
+    <li><u>Advanced</u>: Write the DNA sequence of the chromosome Slice <b>to a file in FASTA format</b>
+        <br/>
+        <br/>
+        <strong>HINT:</strong> Slice objects are extended from Bio::Seq objects so can be written to file using Bio::SeqIO, i.e.
+        <pre>    my $output = Bio::SeqIO->new( -file=>">filename" ,-format=>'Fasta' );
+            $output->write_seq($slice);</pre>
+        <br/>
+    </li>
+    <li><u>Expert</u>: Write the <b>soft-masked</b> DNA sequence of the chromosome Slice to a file in FASTA format
+        <br/>
+        <br/>
+        <strong>HINT:</strong> Use the Bio::EnsEMBL::Slice::get_repeatmasked_seq method to get the repeat-masked Slice.</li>
+</ul>
+
+<h5>b) <u>Fetch a slice for the ENSG00000101266 gene</u></h5>
+<ul>
+    <li><u>Basic</u>: Get the the Slice for that gene
+        <br/>
+        <br/>
+    </li>
+    <li><u>Advanced/Expert</u>: Get the the Slice surronding that gene with 2kb of flanking sequence
+        <br/>
+        <br/>
+        <strong>HINT:</strong> Use the fetch_by_gene_stable_id method from the SliceAdaptor
+        <br/>
+        <br/>
+        <strong>HINT:</strong> Use the name() method from the Slice in order to get the actual location.
+    </li>
+</ul>
+<p></p>
+
+<h5>c) <u>Determine the number of genes on the first 10MB of chromosome 20.</u></h5>
+<p></p>
+<p><strong>HINT:</strong> Fetch a Slice for that locus and get the Genes from the Slice.</p>
+<h5><u>Solutions</u></h5>
+<ul>
+    <li>Exercise 2a:
+        <ul>
+            <li>Basic:
+                [
+                <a href="https://github.com/jherrero/EnsemblAPI_workshop/blob/2013-12.Madrid/solutions/core2a_bas.pl">GitHub</a>
+                |
+                <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/core2a_bas.pl">text</a>
+                ]
+                [
+                <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/core2a_bas.txt">output</a>
+                ]</li>
+            <li>Advanced:
+                [
+                <a href="https://github.com/jherrero/EnsemblAPI_workshop/blob/2013-12.Madrid/solutions/core2a_adv.pl">GitHub</a>
+                |
+                <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/core2a_adv.pl">text</a>
+                ]
+                [
+                <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/seq1.fa">outfile</a>
+                ]</li>
+            <li>Expert:
+                [
+                <a href="https://github.com/jherrero/EnsemblAPI_workshop/blob/2013-12.Madrid/solutions/core2a_exp.pl">GitHub</a>
+                |
+                <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/core2a_exp.pl">text</a>
+                ]
+                [
+                <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/seq2.fa">outfile</a>
+                ]</li>
+        </ul>
+    </li>
+    <li>Exercise 2b:
+        <ul>
+            <li>Basic:
+                [
+                <a href="https://github.com/jherrero/EnsemblAPI_workshop/blob/2013-12.Madrid/solutions/core2b_bas.pl">GitHub</a>
+                |
+                <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/core2b_bas.pl">text</a>
+                ]
+                [
+                <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/core2b_bas.txt">output</a>
+                ]</li>
+            <li>Advanced:
+                [
+                <a href="https://github.com/jherrero/EnsemblAPI_workshop/blob/2013-12.Madrid/solutions/core2b_adv.pl">GitHub</a>
+                |
+                <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/core2b_adv.pl">text</a>
+                ]
+                [
+                <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/core2b_adv.txt">output</a>
+                ]</li>
+        </ul>
+    </li>
+    <li>Exercise 2c:
+                [
+                <a href="https://github.com/jherrero/EnsemblAPI_workshop/blob/2013-12.Madrid/solutions/core2c.pl">GitHub</a>
+                |
+                <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/core2c.pl">text</a>
+                ]
+                [
+                <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/core2c.txt">output</a>
+                ]</li>
+</ul>
+<p></p>
+
+<h3>3. Genes, Transcripts, Exons</h3>
+<p></p>
+
+<h5>a) <u>Fetch the gene with id 'ENSG00000101266'</u></h5>
+<p>Print information about its location.</p>
+<p></p>
+
+<h5>b) <u>Get all the transcripts and proteins for the above gene</u></h5>
+<ul>
+    <li><u>Basic</u>: For each transcript, get its location, its name and the name of the protein (if any)
+        <br/>
+        <br/>
+        <strong>HINT:</strong> Proteins are called Translations in Ensembl
+        <br/>
+        <br/>
+    </li>
+    <li><u>Advanced</u>: Also print the name of the Exons
+        <br/>
+        <br/>
+    </li>
+    <li><u>Expert</u>: and print the sequence of the proteins as well</li>
+</ul>
+<h5>c) <u>Get the list of the different biotypes for the genes obtained in Exercise 2c</u></h5>
+<p></p>
+
+<h5><u>Solutions</u></h5>
+<ul>
+    <li>Exercise 3a:
+        [
+        <a href="https://github.com/jherrero/EnsemblAPI_workshop/blob/2013-12.Madrid/solutions/core3a.pl">GitHub</a>
+        |
+        <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/core3a.pl">text</a>
+        ]
+        [
+        <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/core3a.txt">output</a>
+        ]</li>
+    <li>Exercise 3b:
+        <ul>
+            <li>Basic:
+                [
+                <a href="https://github.com/jherrero/EnsemblAPI_workshop/blob/2013-12.Madrid/solutions/core3b_bas.pl">GitHub</a>
+                |
+                <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/core3b_bas.pl">text</a>
+                ]
+                [
+                <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/core3b_bas.txt">output</a>
+                ]</li>
+            <li>Advanced:
+                [
+                <a href="https://github.com/jherrero/EnsemblAPI_workshop/blob/2013-12.Madrid/solutions/core3b_adv.pl">GitHub</a>
+                |
+                <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/core3b_adv.pl">text</a>
+                ]
+                [
+                <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/core3b_adv.txt">output</a>
+                ]</li>
+            <li>Expert:
+                [
+                <a href="https://github.com/jherrero/EnsemblAPI_workshop/blob/2013-12.Madrid/solutions/core3b_exp.pl">GitHub</a>
+                |
+                <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/core3b_exp.pl">text</a>
+                ]
+                [
+                <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/core3b_exp.txt">output</a>
+                ]</li>
+        </ul>
+    </li>
+    <li>Exercise 3c:
+        [
+        <a href="https://github.com/jherrero/EnsemblAPI_workshop/blob/2013-12.Madrid/solutions/core3c.pl">GitHub</a>
+        |
+        <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/core3c.pl">text</a>
+        ]
+        [
+        <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/core3c.txt">output</a>
+        ]</li>
+</ul>
+
+<h3>4. External References</h3>
+<p></p>
+
+<h5>a) <u>Fetch the ensembl gene for BRCA2</u></h5>
+<p><strong>HINT:</strong> Use the fetch_all_by_external_name() method from the GeneAdaptor.</p>
+<p></p>
+
+<h5>b) <u>Fetch the ensembl genes for SNORA1</u></h5>
+<p><strong>HINT:</strong> There are more than 1 gene with this name.</p>
+<p></p>
+
+<h5>c) <u>Print out all other linked database entries for the gene BRCA2.</u></h5>
+<p></p>
+<h5><u>Solutions</u></h5>
+<ul>
+    <li>Exercise 4a:
+        [
+        <a href="https://github.com/jherrero/EnsemblAPI_workshop/blob/2013-12.Madrid/solutions/core4a.pl">GitHub</a>
+        |
+        <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/core4a.pl">text</a>
+        ]
+        [
+        <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/core4a.txt">output</a>
+        ]</li>
+    <li>Exercise 4b:
+        [
+        <a href="https://github.com/jherrero/EnsemblAPI_workshop/blob/2013-12.Madrid/solutions/core4b.pl">GitHub</a>
+        |
+        <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/core4b.pl">text</a>
+        ]
+        [
+        <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/core4b.txt">output</a>
+        ]</li>
+    <li>Exercise 4c:
+        [
+        <a href="https://github.com/jherrero/EnsemblAPI_workshop/blob/2013-12.Madrid/solutions/core4c.pl">GitHub</a>
+        |
+        <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/core4c.pl">text</a>
+        ]
+        [
+        <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/core4c.txt">output</a>
+        ]</li>
+</ul>
+
+
+            </section>
+        </div>
+        
+        <!-- FOOTER  -->
+        <div id="footer_wrap" class="outer">
+            <footer class="inner">
+                <p class="copyright">Ensembl API workshop maintained by <a href="https://github.com/jherrero">jherrero</a></p>
+                <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+            </footer>
+        </div>
+        
+        
+        
+    </body>
+</html>
