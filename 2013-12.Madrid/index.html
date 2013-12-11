@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset='utf-8' />
+        <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+        <meta name="description" content="Ensembl API workshop : Ensembl core API, Whole-genome alignments, Ensembl compara API (genomic alignments)" />
+        
+        <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/stylesheet.css">
+            
+            <title id=doctitle>Ensembl API workshop</title>
+            </head>
+    
+    <body>
+<script type="text/javascript">
+    $(document).ready(function() {
+                      $("#header_wrap").load("header.html");
+                      title = document.title;
+                      $('#doctitle').load("title.txt", '', function(data) {
+                                          if ($(this).text() != title) {
+                                          document.title = $(this).text() + " - " + title
+                                          }
+                                          });
+                      
+                      });
+</script>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/jherrero/EnsemblAPI_workshop/tree/2013-12.Madrid">View on GitHub</a>
+
+          <h1 id="project_title">ENS-ISCIII Masters in Bioinformatics and Computational Biology</h1>
+          <h2 id="project_tagline">Genomes and Comparative Genomics</h3>
+          <p class="red_bold">Madrid, December 2013</p>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/jherrero/EnsemblAPI_workshop/archive/2013-12.Madrid.zip">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/jherrero/EnsemblAPI_workshop/archive/2013-12.Madrid.tar.gz">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+
+
+<h2>Programme Overview</h2>
+<p class="topic">Ensembl overview</p>
+<ul>
+    <li>Introduction to the Ensembl project</li>
+    <li>Comparative Genomics in Ensembl</li>
+</ul>
+<p class="topic">Ensembl core API</p>
+<ul>
+    <li>Ensembl Perl API design</li>
+    <li>Registry</li>
+    <li>Slices</li>
+    <li>Genes, Transcripts, Exons</li>
+    <li>Translations</li>
+    <li>External References</li>
+</ul>
+<p class="topic">Whole genome alignments</p>
+<ul>
+    <li>Dynamic programming</li>
+    <li>Whole genome alignments strategies</li>
+    <li>Alignment assessment</li>
+    <li>Sequence conservation</li>
+</ul>
+<p class="topic">Ensembl Compara API</p>
+<ul>
+    <li>Registry</li>
+    <li>MethodLinkSpeciesSet</li>
+    <li>GenomeDB</li>
+    <li>DnaFrag</li>
+    <li>GenomicAlignBlock</li>
+    <li>ConservationScore</li>
+    <li>AlignSlice</li>
+</ul>
+
+<h2>Documents and resources</h2>
+<p class="topic">Ensembl Introduction</p>
+<ul>
+    <li>Handouts [ <a href="Ensembl.pdf" class="pubpdf">PDF</a> | <a href="Ensembl.ppt" class="pubppt">PowerPoint</a> ]</li>
+</ul>
+<p class="topic">Ensembl Core API</p>
+<ul>
+    <li>Handouts [ <a href="CoreAPI.pdf">PDF</a> | <a href="CoreAPI.ppt" class="pubppt">PowerPoint</a> ]</li>
+    <li>Exercises [ <a href="CoreAPI.html" class="pubhtml">HTML</a> ]</li>
+    <li>Questions [ <a href="http://www.surveymonkey.com/s/JH3NMHV">HTML</a> ]</li>
+</ul>
+<p class="topic">Whole Genome Alignments</p>
+<ul>
+    <li>Handouts [ <a href="Whole_Genome_Alignments.pdf" class="pubpdf">PDF</a> | <a href="Whole_Genome_Alignments.ppt" class="pubppt">PowerPoint</a> ]</li>
+    <li>Whole genome alignments: [ <a href="Exercises/alignments.html" class="pubhtml">HTML</a> ]</li>
+    <li>Genomic sequence conservation: [ <a href="Exercises/conservation.html" class="pubhtml">HTML</a> ]</li>
+    <li>Display of constrained elements: [ <a href="Exercises/display.html" class="pubhtml">HTML</a> ]</li>
+    <li>Questions [<a href="http://www.surveymonkey.com/s/JPKSGKJ" class="pubhtml">HTML</a> ]</li>
+</ul>
+<p class="topic">Ensembl Compara API</p>
+<ul>
+    <li>Handouts [ <a href="ComparaAPI.pdf" class="pubpdf">PDF</a> | <a href="ComparaAPI.ppt" class="pubppt">PowerPoint</a> ]</li>
+    <li>Exercises [ <a href="ComparaAPI.html" class="pubhtml">HTML</a> ]</li>
+    <li>Questions [ <a href="http://www.surveymonkey.com/s/JPV82NN" class="pubhtml">HTML</a> ]</li>
+</ul>
+
+
+
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Ensembl API workshop maintained by <a href="https://github.com/jherrero">jherrero</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
