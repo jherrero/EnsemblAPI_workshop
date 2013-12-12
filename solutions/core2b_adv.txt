@@ -1,1 +1,1 @@
-chromosome:GRCh37:20:457116:526465:1
+chromosome:GRCh37:20:457116:526482:1

@@ -1,4 +1,4 @@
-# method_link_species_set_id : 654
+# method_link_species_set_id : 619
 homo_sapiens	90
 rattus_norvegicus	140
 oryctolagus_cuniculus	108
@@ -7,8 +7,6 @@ mus_musculus	134
 bos_taurus	122
 pan_troglodytes	125
 equus_caballus	61
-ovis_aries	147
-felis_catus	139
 gorilla_gorilla	123
 sus_scrofa	132
 macaca_mulatta	31

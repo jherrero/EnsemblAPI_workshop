@@ -1,7 +1,7 @@
 BRCA2 (ENSG00000139618) correponds to OTTG -- OTTHUMG00000017411
-BRCA2 (ENSG00000139618) correponds to ENS_LRG_gene -- LRG_293
-BRCA2 (ENSG00000139618) correponds to LRG -- LRG_293
 BRCA2 (ENSG00000139618) correponds to ArrayExpress -- ENSG00000139618
+BRCA2 (ENSG00000139618) correponds to LRG -- LRG_293
+BRCA2 (ENSG00000139618) correponds to ENS_LRG_gene -- LRG_293
 BRCA2 (ENSG00000139618) correponds to DBASS3 -- BRCA2
 BRCA2 (ENSG00000139618) correponds to EntrezGene -- BRCA2
 BRCA2 (ENSG00000139618) correponds to HGNC -- BRCA2
@@ -12,6 +12,12 @@ BRCA2 (ENSG00000139618) correponds to MIM_MORBID --  FANCONI ANEMIA, COMPLEMENTA
 BRCA2 (ENSG00000139618) correponds to MIM_MORBID --  BREAST-OVARIAN CANCER, FAMILIAL, S [#612555]
 BRCA2 (ENSG00000139618) correponds to MIM_MORBID --  GLIOMA SUSCEPTIBILITY 3 [#613029]
 BRCA2 (ENSG00000139618) correponds to MIM_MORBID --  PANCREATIC CANCER, SUSCEPTIBILITY  [#613347]
+BRCA2 (ENSG00000139618) correponds to Orphanet -- Hereditary breast and ovarian cancer syndrome
+BRCA2 (ENSG00000139618) correponds to Orphanet -- Familial prostate cancer
+BRCA2 (ENSG00000139618) correponds to Orphanet -- Fanconi anemia
+BRCA2 (ENSG00000139618) correponds to Orphanet -- Familial pancreatic carcinoma
+BRCA2 (ENSG00000139618) correponds to Orphanet -- Inherited cancer-predisposing syndrome due to biallelic BRCA2 mutations
+BRCA2 (ENSG00000139618) correponds to Orphanet -- Hereditary site-specific ovarian cancer syndrome
 BRCA2 (ENSG00000139618) correponds to UniGene -- Hs.34012
 BRCA2 (ENSG00000139618) correponds to Uniprot_gn -- BRCA2
 BRCA2 (ENSG00000139618) correponds to WikiGene -- BRCA2
@@ -138,7 +144,7 @@ BRCA2 (ENSG00000139618) correponds to GO -- GO:0051298
 BRCA2 (ENSG00000139618) correponds to HGNC_trans_name -- BRCA2-001
 BRCA2 (ENSG00000139618) correponds to PDB -- 1N0W
 BRCA2 (ENSG00000139618) correponds to PDB -- 3EU7
-BRCA2 (ENSG00000139618) correponds to Vega_translation -- 158772
+BRCA2 (ENSG00000139618) correponds to Vega_translation -- 197940
 BRCA2 (ENSG00000139618) correponds to Vega_translation -- OTTHUMP00000018803
 BRCA2 (ENSG00000139618) correponds to goslim_goa -- GO:0000003
 BRCA2 (ENSG00000139618) correponds to goslim_goa -- GO:0002376
@@ -251,7 +257,7 @@ BRCA2 (ENSG00000139618) correponds to GO -- GO:0045931
 BRCA2 (ENSG00000139618) correponds to GO -- GO:0048478
 BRCA2 (ENSG00000139618) correponds to GO -- GO:0051276
 BRCA2 (ENSG00000139618) correponds to HGNC_trans_name -- BRCA2-003
-BRCA2 (ENSG00000139618) correponds to Vega_translation -- 158773
+BRCA2 (ENSG00000139618) correponds to Vega_translation -- 197946
 BRCA2 (ENSG00000139618) correponds to Vega_translation -- OTTHUMP00000231722
 BRCA2 (ENSG00000139618) correponds to goslim_goa -- GO:0000003
 BRCA2 (ENSG00000139618) correponds to goslim_goa -- GO:0002376
@@ -289,14 +295,14 @@ BRCA2 (ENSG00000139618) correponds to Uniprot/SPTREMBL -- H0YD86_HUMAN
 BRCA2 (ENSG00000139618) correponds to EMBL -- AL137247
 BRCA2 (ENSG00000139618) correponds to EMBL -- AL445212
 BRCA2 (ENSG00000139618) correponds to HGNC_trans_name -- BRCA2-005
-BRCA2 (ENSG00000139618) correponds to Vega_translation -- 158774
+BRCA2 (ENSG00000139618) correponds to Vega_translation -- 197953
 BRCA2 (ENSG00000139618) correponds to Vega_translation -- OTTHUMP00000231723
 BRCA2 (ENSG00000139618) correponds to OTTT -- OTTHUMT00000387478
 BRCA2 (ENSG00000139618) correponds to UniParc -- UPI0001F77F81
 BRCA2 (ENSG00000139618) correponds to Vega_transcript -- BRCA2-002
 BRCA2 (ENSG00000139618) correponds to Vega_transcript -- OTTHUMT00000046001
 BRCA2 (ENSG00000139618) correponds to HGNC_trans_name -- BRCA2-002
-BRCA2 (ENSG00000139618) correponds to Vega_translation -- 158775
+BRCA2 (ENSG00000139618) correponds to Vega_translation -- 197955
 BRCA2 (ENSG00000139618) correponds to Vega_translation -- OTTHUMP00000231724
 BRCA2 (ENSG00000139618) correponds to OTTT -- OTTHUMT00000046001
 BRCA2 (ENSG00000139618) correponds to UniParc -- UPI0001F77F82
@@ -306,7 +312,7 @@ BRCA2 (ENSG00000139618) correponds to HGNC_trans_name -- BRCA2-006
 BRCA2 (ENSG00000139618) correponds to OTTT -- OTTHUMT00000387479
 BRCA2 (ENSG00000139618) correponds to CCDS -- CCDS9344.1
 BRCA2 (ENSG00000139618) correponds to Uniprot/SWISSPROT -- BRCA2_HUMAN
-BRCA2 (ENSG00000139618) correponds to RefSeq_peptide -- NP_000050
+BRCA2 (ENSG00000139618) correponds to RefSeq_peptide -- NP_000050.2
 BRCA2 (ENSG00000139618) correponds to RefSeq_peptide -- NP_000050.2
 BRCA2 (ENSG00000139618) correponds to RefSeq_mRNA -- NM_000059.3
 BRCA2 (ENSG00000139618) correponds to Uniprot/SPTREMBL -- E9PIQ1_HUMAN
@@ -533,8 +539,8 @@ BRCA2 (ENSG00000139618) correponds to protein_id -- CAA98995.2
 BRCA2 (ENSG00000139618) correponds to protein_id -- CAI13195.1
 BRCA2 (ENSG00000139618) correponds to protein_id -- CAI40479.1
 BRCA2 (ENSG00000139618) correponds to UniParc -- UPI00001FCBCC
-BRCA2 (LRG_293) correponds to LRG -- LRG_293
 BRCA2 (LRG_293) correponds to Ens_Hs_gene -- ENSG00000139618
+BRCA2 (LRG_293) correponds to LRG -- LRG_293
 BRCA2 (LRG_293) correponds to DBASS3 -- BRCA2
 BRCA2 (LRG_293) correponds to EntrezGene -- BRCA2
 BRCA2 (LRG_293) correponds to HGNC -- BRCA2
@@ -545,6 +551,12 @@ BRCA2 (LRG_293) correponds to MIM_MORBID --  FANCONI ANEMIA, COMPLEMENTATION GR 
 BRCA2 (LRG_293) correponds to MIM_MORBID --  BREAST-OVARIAN CANCER, FAMILIAL, S [#612555]
 BRCA2 (LRG_293) correponds to MIM_MORBID --  GLIOMA SUSCEPTIBILITY 3 [#613029]
 BRCA2 (LRG_293) correponds to MIM_MORBID --  PANCREATIC CANCER, SUSCEPTIBILITY  [#613347]
+BRCA2 (LRG_293) correponds to Orphanet -- Hereditary breast and ovarian cancer syndrome
+BRCA2 (LRG_293) correponds to Orphanet -- Familial prostate cancer
+BRCA2 (LRG_293) correponds to Orphanet -- Fanconi anemia
+BRCA2 (LRG_293) correponds to Orphanet -- Familial pancreatic carcinoma
+BRCA2 (LRG_293) correponds to Orphanet -- Inherited cancer-predisposing syndrome due to biallelic BRCA2 mutations
+BRCA2 (LRG_293) correponds to Orphanet -- Hereditary site-specific ovarian cancer syndrome
 BRCA2 (LRG_293) correponds to UniGene -- Hs.34012
 BRCA2 (LRG_293) correponds to Uniprot_gn -- BRCA2
 BRCA2 (LRG_293) correponds to WikiGene -- BRCA2
