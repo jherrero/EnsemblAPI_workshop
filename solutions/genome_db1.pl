@@ -12,12 +12,11 @@ Bio::EnsEMBL::Registry->load_registry_from_db(
 
 # Get the Compara GenomeDB Adaptor
 my $genome_db_adaptor = Bio::EnsEMBL::Registry->get_adaptor(
-	"Multi", "compara", "GenomeDB");
+"Multi", "compara", "GenomeDB");
 
-# Fetch a list ref of all the compara genome_dbs
-my $list_ref_of_gdbs = $genome_db_adaptor->fetch_all();
+# Get the GenomeDB for the pig genome
+my $pig_genome_db = $genome_db_adaptor->fetch_by_registry_name("pig");
 
-foreach my $genome_db( @{ $list_ref_of_gdbs } ){
-	print join("\t", $genome_db->name, $genome_db->assembly, $genome_db->genebuild), "\n";
-}
-
+print "Name: ", $pig_genome_db->name, "\n";
+print "Assembly: ", $pig_genome_db->assembly, "\n";
+print "GeneBuild: ", $pig_genome_db->genebuild, "\n";

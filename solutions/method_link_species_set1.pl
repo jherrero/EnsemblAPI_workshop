@@ -1,6 +1,6 @@
 #
-# This script counts the number of MethodLinkSpeciesSets stored in
-# the compara database
+# This script prints the name of the MethodLinkSpeciesSets for
+# the pig-cow LASTZ_NET pairwise alignments
 #
 use strict;
 use warnings;
@@ -16,13 +16,8 @@ Bio::EnsEMBL::Registry->load_registry_from_db(
 my $mlssa = Bio::EnsEMBL::Registry->get_adaptor(
     "Multi", "compara", "MethodLinkSpeciesSet");
 
-# fetch_all() method returns a array ref.
-my $all_mlss = $mlssa->fetch_all();
+# Fetch the MLSS for pig-cow LASTZ-NET alignments (Mind the square brackets!)
+my $this_mlss = $mlssa->fetch_by_method_link_type_registry_aliases(
+    "LASTZ_NET", ["pig", "cow"]);
 
-# Count the total number of MethodLinkSpeciesSet. In Perl, assigning
-# an array to a scalar returns the number of elements in the array.
-my $total_count = @{ $all_mlss };
-
-# Print the result
-print "Total number of analyses: ", $total_count, "\n";
-
+print $this_mlss->name, "\n";

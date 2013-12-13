@@ -13,7 +13,6 @@ Bio::EnsEMBL::Registry->load_registry_from_db(
 	-host=>"ensembldb.ensembl.org",
 	-user=>"anonymous");
 
-
 # Get the Compara Adaptor for MethodLinkSpeciesSets
 my $method_link_species_set_adaptor =
     Bio::EnsEMBL::Registry->get_adaptor(

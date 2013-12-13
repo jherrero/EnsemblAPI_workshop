@@ -1,14 +1,17 @@
 # Genomic alignments
 perl genome_db1.pl > genome_db1.txt
+perl genome_db2.pl > genome_db2.txt
 perl dnafrag1.pl > dnafrag1.txt
+perl dnafrag2.pl > dnafrag2.txt
 perl method_link_species_set1.pl > method_link_species_set1.txt
 perl method_link_species_set2.pl > method_link_species_set2.txt
 perl method_link_species_set3.pl > method_link_species_set3.txt
 perl genomic_align_block1a.pl > genomic_align_block1a.txt
 perl genomic_align_block1b.pl > genomic_align_block1b.txt
+perl genomic_align_block1c.pl > genomic_align_block1c.txt
 perl genomic_align_block2.pl > genomic_align_block2.txt
 perl constrained_element1.pl > constrained_element1.txt
-perl synteny1.pl > synteny1.txt
+#perl synteny1.pl > synteny1.txt
 
 # Gene trees and families
 #perl family1.pl > family1.txt

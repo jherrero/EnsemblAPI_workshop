@@ -1,3 +1,0 @@
-ortholog_one2one [Euarchontoglires]
-ENSEMBLGENE ENSMUSG00000033323 Ctdp1 (mus_musculus)
-

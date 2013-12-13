@@ -5,3 +5,186 @@ chromosome:Sscrofa10.2:15:89151587:89157190:1
 89154747
 89155033
 chromosome:Sscrofa10.2:15:89151587:89157190:1
+dbID: 6220000079070. CLUSTAL W(1.81) multiple sequence alignment
+
+
+choloepus_hoffmanni/scaffold_99127/5646-5930          ctgcctcagaaaattaaattgctgagaaatctgtttctgagtcttatttgactctt-ttt
+dasypus_novemcinctus/scaffold_21782/11635-11918       ctgcctcagaaaatcaaattgctgagaaacctatttctgagccatatttgactttt-ttt
+loxodonta_africana/scaffold_3/53549243-53549522       ctgcctcagaaaatcaaattgcctagaagtctatttctgacccttatttgacttttattt
+ictidomys_tridecemlineatus/JH393319.1/3638659-3638945 ctgcatcagaaagtcaaattgccaagaaatctatttctgagccttatttgacttttattt
+cavia_porcellus/scaffold_3/16264848-16265134          ctgtctcagaaactgaaattgccaagaaatctatttctgagccttatctgacttttattt
+dipodomys_ordii/scaffold_6781/16425-16711             cagcctcagaaagtcaaattgctgagaaatctatttctgagccttatttgacttttattt
+rattus_norvegicus/3/65992519-65992806                 ctgcatcagaaagtcaaattgctgagaaatctatttctgagccttattgggcttttattt
+mus_musculus/2/72826882-72827164                      ctgcatcagaaagtcaaattgctgagaaatctaattctgagccttattgggcttttattt
+ochotona_princeps/GeneScaffold_2691/381306-381585     ctacctccaaaagtcaaattgcctagaaatctatttctgaaccttattttacttttattt
+oryctolagus_cuniculus/7/113415279-113415568           ctgcctcagaaagtcgaattgcccagaaatctgtctctgagccttatttgacattttttt
+microcebus_murinus/GeneScaffold_3627/344705-344991    ctgcctcagaaagtcaaattgctgagaaatctatttctgagccttatttggcttttattt
+otolemur_garnettii/GL873567.1/12491341-12491626       ctgcctcagaaagtcaaattgctgagaaatctatttccaagtcttatttgacttttattt
+callithrix_jacchus/6/44683448-44683733                ctgtctcagaaagtcaaattgccaagaaacctatttctgagccttatttgacttttattt
+nomascus_leucogenys/GL397263.1/17585278-17585564      ctgcctcagaaagtcatattgctgagaaacctatttctgagccttatttgacttttattt
+homo_sapiens/2/174664945-174665231                    ctgcctcagaaagtcaaattgctgagaaacctatttctgagccttatttggcttttattt
+pan_troglodytes/2B/178249523-178249809                ctgcctcagaaagtcaaattgctgagaaacctatttctgagccttatttggcttttattt
+gorilla_gorilla/2b/61681572-61681858                  ctgactcagaaagtcaaattgctgagaaacctatttctgagccttatttggcttttattt
+pongo_abelii/2b/63872111-63872398                     ctgcctcagaaagtcaaattgctgagaaacctatttctgagccttatttgacttttattt
+macaca_mulatta/12/37412624-37412910                   ctgcctcagaaattcaaattgctgagaaacctatttctgagccttatttgacttttattt
+tarsius_syrichta/scaffold_23777/4695-4981             ctgcctcggaaagtcaaattgccgagaaatctatttctaagccttatttgacttttattt
+tupaia_belangeri/GeneScaffold_4504/153180-153466      ctgcaccagaaagtccaattgctacaaaatctatttctaagtcttatttgacttttattt
+sorex_araneus/scaffold_244840/17476-17751             ctgctttcaaaagtcaaattgtcaagaaatctatttctgagtcttatttggtttttagtt
+erinaceus_europaeus/scaffold_367611/175672-175944     ctgcctcagaaagtcaatttgccaagaaatctatttctgagccttctctggatttgattt
+felis_catus/C1/162163895-162164180                    ttgcctcagaaagtcaaatcgccaagaaatctatttatgagctttatttggcttttattt
+canis_familiaris/36/17936397-17936682                 ctgcctcagaaagccaaattgccaagaaatcaatttatgagccttatatggcttttattt
+ailuropoda_melanoleuca/GL192913.1/278617-278902       ctgcctcagaaagccaaattgccaagaaatcaatttatgagccttatttggcttttattt
+mustela_putorius_furo/GL897095.1/146768-147053        ctgcttcagaaagacaaattgtcaggaaatcaatttaggagccttatttggcttttattt
+equus_caballus/18/52643429-52643715                   ctgcctcagaaagtcaaattgtcaagaaatctatttctgagccttatctggtttttattt
+pteropus_vampyrus/scaffold_17/317267-317550           ctgcctcagatagtcaaattgacaagaaatctatttctgagcctgatctggtttttattt
+sus_scrofa/15/89154747-89155033                       atgcctcaaaaagtcaaattgcccagaaatcgatttctgagccttatctggcttttattt
+vicugna_pacos/scaffold_1275/402122-402408             ctgcctcagaaagtcaaattgccaagaaatcgatttctgaaccttatttggcttttattt
+bos_taurus/2/22989927-22990213                        ctgcctcagaaagccaaattgccaagaaatcaatttctgagccttatttggcttttattt
+tursiops_truncatus/GeneScaffold_2755/66830-67112      ctgcctcagaaaatcaaattgccaagaaatcgatttctgagccttatttggcttttatct
+                                                               * *      * *     **  *    *   *      *       *    *
+
+
+choloepus_hoffmanni/scaffold_99127/5646-5930          gggcaagttgaataaatacatgcaa--tttcttgacaatgcattcataaacgagggtaca
+dasypus_novemcinctus/scaffold_21782/11635-11918       ggacaagctgaataaatagacgcaa--tttgttgacaatgcattcataaatgagggtaca
+loxodonta_africana/scaffold_3/53549243-53549522       ggacaagttgaataaatacatgcag--tttgttgacaaagcattcataaatgggggtaca
+ictidomys_tridecemlineatus/JH393319.1/3638659-3638945 ggacaagttgaataaatacgtgcaa--tttgttgacaatgcgttcataaatgaaggtaca
+cavia_porcellus/scaffold_3/16264848-16265134          gggcaagtggaataaatgcatgcaa--tttgttgacaatgaattcataaatgaagctaca
+dipodomys_ordii/scaffold_6781/16425-16711             gggaaagttgaataaatatgtgcaa--tttgttgacaatacattcataaatgaagataca
+rattus_norvegicus/3/65992519-65992806                 ggacaagttgaataaacgtgtgtga--tttgttgacaatgcattcataaatgagggcacg
+mus_musculus/2/72826882-72827164                      ggacaagttgaataaatgcgtgtga--tttgttgacaatacattcacaaatgagggcatg
+ochotona_princeps/GeneScaffold_2691/381306-381585     ggataagatgaacaaatatgtgcga--ttttttcacaacatattcataaatgagagtacc
+oryctolagus_cuniculus/7/113415279-113415568           ggacaagttaaataaatacgtgcaaatttttttcacaatgtgttcataaatgaaagtaca
+microcebus_murinus/GeneScaffold_3627/344705-344991    ggacaagttgaataaatacacgcaa--tttgttgacaatgcattcataaatgagggtaca
+otolemur_garnettii/GL873567.1/12491341-12491626       ggacaagttgaataaatacacgcaa--tt-gttgacaatgcattcataaatgaggggaca
+callithrix_jacchus/6/44683448-44683733                gcacaagctgaataaatacaagtaa--ttcattgacaatgcattcataaatgaggggacg
+nomascus_leucogenys/GL397263.1/17585278-17585564      acacaagttgaatagatacacataa--ttcgttgacaatgcattcataaatgagggtacg
+homo_sapiens/2/174664945-174665231                    acacaagttgaatagataaacataa--ttcgttgacaatgcattcataaacgaggatacg
+pan_troglodytes/2B/178249523-178249809                acacaagttgaatagatacacataa--ttcattgacaatgcattcataaacgagggtacg
+gorilla_gorilla/2b/61681572-61681858                  acacaagttgaatagatacacataa--ttcattgacaatgcattcataaacgagggtacg
+pongo_abelii/2b/63872111-63872398                     acacaagttgaatagatacacgtaa--ttcgctgacaatgcattcataaatgagggtacg
+macaca_mulatta/12/37412624-37412910                   tcacaagttgaataaatacacataa--ttcgttgacaatgcattcataaatgagggtatg
+tarsius_syrichta/scaffold_23777/4695-4981             gaacaagttgaataaatacatgcaa--tttgttgacaatgcattcataaatgagggcata
+tupaia_belangeri/GeneScaffold_4504/153180-153466      ggacaagttgaataaatacacgcaa--tttgttggcaatgcatttgtaaatgagggtaca
+sorex_araneus/scaffold_244840/17476-17751             ggacaagttaaataagtacaaacaa--tttgttgacaatgcactcgtaaatga-------
+erinaceus_europaeus/scaffold_367611/175672-175944     ggacaagttgaataaatatacgcaa--tttgttgacagtgtttccgcaaatga-------
+felis_catus/C1/162163895-162164180                    ggacaagttgaataaatagaagcaa--tttgttgacaatacattcttaaatgagggaaaa
+canis_familiaris/36/17936397-17936682                 ggacaagttgaataaacacaagcaa--tttgttgacgatgcatttttaaacaagggaaca
+ailuropoda_melanoleuca/GL192913.1/278617-278902       ggacaagctgaataaatacaagcaa--tttgttgacaatgcattcttaaataagggaaca
+mustela_putorius_furo/GL897095.1/146768-147053        ggacaagtagaataaatacaagcag--tttgttgacaatgcattcttaaataagggaaca
+equus_caballus/18/52643429-52643715                   ggacaagttgaataaatacacacaa--ttttttgacaatgcattcgtaaatgaaagtaca
+pteropus_vampyrus/scaffold_17/317267-317550           g-acgacttgagtgaatacatgcaa--tttgttgacaatgcatttgtaaacgaaggtaca
+sus_scrofa/15/89154747-89155033                       ggacaagttgaataaatacacacaa--tttgttgacaatgccttcgtaaatgagggtaca
+vicugna_pacos/scaffold_1275/402122-402408             ggacaagttaaataaatacacgcag--tttgttgacaatgcattcctaaatgagggtaca
+bos_taurus/2/22989927-22990213                        ggacaagttgaataaatacacgcaa--tttgttgacagtgtcttcgtaaataagggtaca
+tursiops_truncatus/GeneScaffold_2755/66830-67112      ggacacgttgaataaatacacgcaa--tctgttgacaatgcattcgt----gagagtaca
+                                                                *                *    *  *                        
+
+
+choloepus_hoffmanni/scaffold_99127/5646-5930          agaa-atctgcctaaaaattgcatcttaaaaaaaggcatttccatagtaaactc-tattt
+dasypus_novemcinctus/scaffold_21782/11635-11918       agaa-atctgcttacaaattgcatcttaagagaagacatttccattgtaaactc-tattt
+loxodonta_africana/scaffold_3/53549243-53549522       agaa-atcagtttataaaatgcatcttaaaaaaaggcatttccataggaaactc-tattt
+ictidomys_tridecemlineatus/JH393319.1/3638659-3638945 agaa-atgtgtctttaaattgcatcttcaaagaaaacatttccatagtaaactc-tattt
+cavia_porcellus/scaffold_3/16264848-16265134          agaa-atttctctttaaattgccttttcaaagaaaacattttcatagtaaactc-tattt
+dipodomys_ordii/scaffold_6781/16425-16711             agaa-atctgtcttcaaattgcatcttcaaagaaaccatttccatagtaaactc-tattt
+rattus_norvegicus/3/65992519-65992806                 agaa-attcgtcttcaaattgcatcttcaaagaaaatatttctatagtaaactg-tcttt
+mus_musculus/2/72826882-72827164                      agaa-atttgtctttaaattgcatctgcaaagaaa----cttcatagtaaactc-tattt
+ochotona_princeps/GeneScaffold_2691/381306-381585     caaa-aact--ctttcaattatagcttcaaagaaaacatttccatagtgaactc-t----
+oryctolagus_cuniculus/7/113415279-113415568           aaaa-aat-ctctttcaattgcatcttcaaagaaaacatttccatagtaaactc-tattt
+microcebus_murinus/GeneScaffold_3627/344705-344991    agaa-atctgccttcaaattgcatctgaaaagaaaacattttcatagtaaactc-tattt
+otolemur_garnettii/GL873567.1/12491341-12491626       agaa-atctgtcttcaaattgcatctgaaaagaaaacattttcatagtaaactc-tattt
+callithrix_jacchus/6/44683448-44683733                tgaa-gtctgacttccaattgcatcttaagagaatatattttcatagtgacgtc-tattt
+nomascus_leucogenys/GL397263.1/17585278-17585564      tgaa-atctgtcttccaattgcatcttaaaagaacatattttcctagtaaagtc-tattt
+homo_sapiens/2/174664945-174665231                    tgaa-atctgtcttccaattgcatcttaaaagaacatattttcatagtaaagtc-tattt
+pan_troglodytes/2B/178249523-178249809                tgaa-atctgtcttccaattgcatcttaaaagaacatattttcatagtaaagtc-tattt
+gorilla_gorilla/2b/61681572-61681858                  tgaa-atctgtcttccaattgcattttaaatgaacatattttcatagtaaagtc-tattt
+pongo_abelii/2b/63872111-63872398                     tgaa-atctgtcttccaattgcatcttaaaagaacatatttttatagtaaagtcttattt
+macaca_mulatta/12/37412624-37412910                   tgaa-atctgtcttccaattgcatcttaaaagaacatattttcataataaagtc-tattt
+tarsius_syrichta/scaffold_23777/4695-4981             agaa-atctgtcttcaaattgcatcttaaaggaaaacattttcatagtaaactc-tattt
+tupaia_belangeri/GeneScaffold_4504/153180-153466      agaa-attggtctttaaattgcatcttaaaagaaaacatttccgttgtaagcac-tgttg
+sorex_araneus/scaffold_244840/17476-17751             -----atctatctttaaattgcatcttaaaaaaagacatttctatagaaaactc-tattt
+erinaceus_europaeus/scaffold_367611/175672-175944     -----atctgtctttaaattgcatctttaaaaaagaaaaattcacagtaaactc-tattt
+felis_catus/C1/162163895-162164180                    aaac-acctgtctttcaattgcatcttgaaagaagacgttactataggaaaccc-tattt
+canis_familiaris/36/17936397-17936682                 aaaatatctgttttgaaactgcgtcttagaagaagacattt-catagtaaaccc-aattt
+ailuropoda_melanoleuca/GL192913.1/278617-278902       aaaa-atctgtcttgaaattgcatcttagaagaagacatttccatagtaaacct-gattt
+mustela_putorius_furo/GL897095.1/146768-147053        aaag-atctgtcttgaaatggcattttagaagaagacgtttccatagtaaaccc-agttt
+equus_caballus/18/52643429-52643715                   agaa-atctgtctttaaattgcatcttacaagaagatatttccatagtaaactc-tattt
+pteropus_vampyrus/scaffold_17/317267-317550           agaa-atct--ctttaaattgcatcttaggagaagacattttcatagtaaactc-tattt
+sus_scrofa/15/89154747-89155033                       agaa-atctgtctttaaattgcatcttcaaagaagacatttccatagcaaactc-tattt
+vicugna_pacos/scaffold_1275/402122-402408             agaa-atctgtctttaaattgcatcttcaaagaaaacatttccatagtaaactc-tattt
+bos_taurus/2/22989927-22990213                        agaa-atctgtctttaaattgcatcctcaaagaagacatttccatagtaaactc-tattt
+tursiops_truncatus/GeneScaffold_2755/66830-67112      agaa-atctgtctttaaattgcatcttcaaagaagacatttccatagtaaactc-tattt
+                                                                  *   **              **               *          
+
+
+choloepus_hoffmanni/scaffold_99127/5646-5930          ---gtcccagaaagtattaaact-catgaaagatagaaattgaaaagtaagcaatcatac
+dasypus_novemcinctus/scaffold_21782/11635-11918       ---gtcccagaaactattagatt-cttgaaagatagaaattgaaaagtaagcaatcatac
+loxodonta_africana/scaffold_3/53549243-53549522       ---gtcccttaaggtattaggctacttgagggatggaaattgaaaagtaagtaatcatac
+ictidomys_tridecemlineatus/JH393319.1/3638659-3638945 ---gtcccgggaagtattaggctacttgaaagatggaaattgaaaagtaagcaatcatac
+cavia_porcellus/scaffold_3/16264848-16265134          ---gtcccaggaagtattagactacttgaaagatggaaattgaaaagtaagcaatcatac
+dipodomys_ordii/scaffold_6781/16425-16711             ---gtcccaggaagtattagacaacttgaaagatggaaattgaaaagtaagcaatcatac
+rattus_norvegicus/3/65992519-65992806                 ---gtcccaggaagtattagactacttggaagattgaaattgggaagtaagcaatcatac
+mus_musculus/2/72826882-72827164                      ---gtcctgggaagtattagactacttggaagattgaaattggaaagtgagcaatcacac
+ochotona_princeps/GeneScaffold_2691/381306-381585     ---gtcccagaaggtattagcctccttgaaggctagaaattaaaaagtgagcaatcacac
+oryctolagus_cuniculus/7/113415279-113415568           aaagtcccaggaagtattagcctccttgaaagctggaaattgaaaggtgagcagtcacac
+microcebus_murinus/GeneScaffold_3627/344705-344991    ---gtcccaggaagtattagactacttgaaagatggaaattgaaaagtaagcaatcatac
+otolemur_garnettii/GL873567.1/12491341-12491626       ---ggcccaggaagtattagactacttggaagatggaaattgaaaagtaagcaatcatac
+callithrix_jacchus/6/44683448-44683733                ---gtctt-ggaagtattagactatttgaaaaatggaaatgaaaaagtgagcaatcctac
+nomascus_leucogenys/GL397263.1/17585278-17585564      ---gtcccgggaagcattagactactggaaagatggaaatggaaaagtgagcgatcatac
+homo_sapiens/2/174664945-174665231                    ---gtcccgggaagcattagactatttgaaagatggaaatggaaaagtgagcgatcatac
+pan_troglodytes/2B/178249523-178249809                ---gtcccaggacgcattagactatttgaaagatggaaatggaaaagtgagcgatcatac
+gorilla_gorilla/2b/61681572-61681858                  ---gtcccgggaagcattagactatttgaaagatggaaatggaaaagtgagcgatcatac
+pongo_abelii/2b/63872111-63872398                     ---gtcccacgaagcattagactatttgaaagatggaaatggaaaagtgagtgatcatac
+macaca_mulatta/12/37412624-37412910                   ---gtcccaggaagcattagactatttgaaagatggaaatggaaaagtgagcaatcatac
+tarsius_syrichta/scaffold_23777/4695-4981             ---gtcccaggaactattagactacctgaaggatgaaaattgaaaagtgagcaattgtac
+tupaia_belangeri/GeneScaffold_4504/153180-153466      ---gttccagggagtattatactacttgaaagatggaaattgaaaagtgagcaattatac
+sorex_araneus/scaffold_244840/17476-17751             ---gtcccaggaagtattagactccttgaaagatggaaattgaaaagtaagcaatcatac
+erinaceus_europaeus/scaffold_367611/175672-175944     ---ctc---ggaagtattagactccttgaaagatggaaattgaaaagtaagcaatcatac
+felis_catus/C1/162163895-162164180                    ---gtcccaggaaatattaagctacatgaaagatgg-aattgaaaagtaagccatcatat
+canis_familiaris/36/17936397-17936682                 ---atcccagaaaggattaagctacgtgaaagatgg-agttgaaaaggaagtaaccatct
+ailuropoda_melanoleuca/GL192913.1/278617-278902       ---gccccaggaagaattaagctacgtgaaagatgg-aattgaaaaggaagcaaccgtat
+mustela_putorius_furo/GL897095.1/146768-147053        ---gtcccaggaagaactgagttacgtgaaggatgg-aattgacaaggaagcaaccatat
+equus_caballus/18/52643429-52643715                   ---gtcccaagaagtattaggctacttgaaagatgggaattgaaaagtaagcaatcatcc
+pteropus_vampyrus/scaffold_17/317267-317550           ---gtcctgggaaatattaaacgacttaaaagatggaagttgaaaagtaagcaatcatac
+sus_scrofa/15/89154747-89155033                       ---gtcctgggaagcattagactacttgaaagatggaaattgaaaagtaagcaatcatac
+vicugna_pacos/scaffold_1275/402122-402408             ---gtcccaggaagtattagactacttgaaagagggaaattgaaaagtaagcaatcatac
+bos_taurus/2/22989927-22990213                        ---gtcccaggaagtattagactacttgaaagatggaaattgaaaagtaagcaatcatac
+tursiops_truncatus/GeneScaffold_2755/66830-67112      ---gtcccaggaagtattagactacttgaaagatggaaattgaaaagtaagcaatcatac
+                                                                     * *                   * *    * *  **         
+
+
+choloepus_hoffmanni/scaffold_99127/5646-5930          ttcaaaaggtccctggtt-ttcatctcttacaggtctacaaatttctcagaagct
+dasypus_novemcinctus/scaffold_21782/11635-11918       tttaaaagatcccagg-g-tttatctcttatagatctgcaaatttcacagaattt
+loxodonta_africana/scaffold_3/53549243-53549522       ttagaaaa-------gtt-ttcatctctcacaggtctgcaaatttctccatagct
+ictidomys_tridecemlineatus/JH393319.1/3638659-3638945 tttgaaaggtccctggtt-ttcatctcttaaaggtctgcaaatttctcagaagtt
+cavia_porcellus/scaffold_3/16264848-16265134          tttgaaaggtccctggtt-ctcatttcttacgggtctccaaattcttcagaagcc
+dipodomys_ordii/scaffold_6781/16425-16711             tttgaaaggtccttggtt-ttcatctcttacaggtctgcaaatttctcagaagct
+rattus_norvegicus/3/65992519-65992806                 tttgaaaggtccctagtttttcacctctttcaggtttacagatttctctaaagct
+mus_musculus/2/72826882-72827164                      tttgaaaggtccctagtt-ttcatctcttccaggtctacagatttttctaaagct
+ochotona_princeps/GeneScaffold_2691/381306-381585     tttgaaaggacccttgtt-ctcatctcttaga-gtttgcaaatttcccagaagcg
+oryctolagus_cuniculus/7/113415279-113415568           cttgaaagggcccacgtt-ttcatctcttgct-gtctgcaaatttcccagaagct
+microcebus_murinus/GeneScaffold_3627/344705-344991    tttgaaaggtccctgatt-tccatctcctacaggtctgcaaatttctcagaagcc
+otolemur_garnettii/GL873567.1/12491341-12491626       tttgaaaggtccctgatt-ttcatctcttgcaggtctgcaaatttctcagcagct
+callithrix_jacchus/6/44683448-44683733                tttgaaaggtcccttgtt-tttatttcttacaagtctgcaaatttctcagaagct
+nomascus_leucogenys/GL397263.1/17585278-17585564      ttagaaaagtcgctggtt-tttatctcctacaggtctgcaaatttctcagaagct
+homo_sapiens/2/174664945-174665231                    ttagaaaagtcgctggtt-tttatctcttacaggtctgcaaatttctcagaagct
+pan_troglodytes/2B/178249523-178249809                ttagaaaagtcgctggct-tttatctcttacaggtctgcaaatttctcagaagct
+gorilla_gorilla/2b/61681572-61681858                  ttagaaaagtcgctggtt-tttatctcttacaggtctgcaaatttctcagaagct
+pongo_abelii/2b/63872111-63872398                     ttagaaaagtcgctggtt-tttatctcttacaggtctgcaaatttctcagaagct
+macaca_mulatta/12/37412624-37412910                   ttagaaaagtccctggat-tttatctcttacaggtctgcaaatttctcagaagct
+tarsius_syrichta/scaffold_23777/4695-4981             ttggaaaggtccctggtt-ttcatctcttacaggtctgtacatttctcagaagct
+tupaia_belangeri/GeneScaffold_4504/153180-153466      tcggaaaggtccctggtt-ttcatctctcctaggtctacagatttctcaggagct
+sorex_araneus/scaffold_244840/17476-17751             tttgaaaggtcgcaggtt-ttcatctcctcgagggctgcaaatttcccaggagct
+erinaceus_europaeus/scaffold_367611/175672-175944     tttgaaaggtccctggtt-ttcatctcttataggtctgcaaatttctcagaaact
+felis_catus/C1/162163895-162164180                    tttgaaaggtccctgatt-ttcatctcttataggcctgcaaatttctcagaagct
+canis_familiaris/36/17936397-17936682                 tttgaaaagtccctcgct-ttcatctcttacaggtctgcaaatttctcggaagct
+ailuropoda_melanoleuca/GL192913.1/278617-278902       tttgagaggtccctgatg-gtcctctcttacaggtttgccaatttctcagaagct
+mustela_putorius_furo/GL897095.1/146768-147053        tttgaaaggtccctggct-gtcctctcttacaggtctgcaaatttctcagaagct
+equus_caballus/18/52643429-52643715                   tgtgaaaggttcctggtt-ttcatctcttacaggtctgcaaattcctcagaagct
+pteropus_vampyrus/scaffold_17/317267-317550           tttgaaaggtctctggtt-ttcatatcttataggtctgcaaatttctcagaagct
+sus_scrofa/15/89154747-89155033                       tttgaaaggtgcctggtt-ttcatctcttacaggtctgcaaatttctcagaagct
+vicugna_pacos/scaffold_1275/402122-402408             tttgaaaggtccctggtt-ttcatctcttccaggtcagaaaatttttcagaagct
+bos_taurus/2/22989927-22990213                        tttgaaaggttcctggtt-ttcatctcttacaggtctgcaaatttctcagaagct
+tursiops_truncatus/GeneScaffold_2755/66830-67112      tttgaaaggtccctggtt-ttcatctcttacgggtctgcaaatttctcagaagct
+                                                          * *                  **              ***   *   *   
+
+

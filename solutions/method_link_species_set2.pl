@@ -1,6 +1,6 @@
 #
-# This script counts the number of MethodLinkSpeciesSets by type
-# stored in the compara database
+# This script lists the MethodLinkSpeciesSets stored in
+# the compara database
 #
 use strict;
 use warnings;
@@ -19,14 +19,6 @@ my $mlssa = Bio::EnsEMBL::Registry->get_adaptor(
 # fetch_all() method returns a array ref.
 my $all_mlss = $mlssa->fetch_all();
 
-# Loop through all the MethodLinkSpeciesSet and count them by type
-my %mlt_counter;
-foreach my $method_link_species_set (@{ $all_mlss }){
-	$mlt_counter{ $method_link_species_set->method->type }++;
+foreach my $this_mlss (@$all_mlss) {
+    print $this_mlss->name, "\n";
 }
-
-# Print the result. "each" returns each pair of key-values in the hash
-while (my ($method_link_type, $count) = each %mlt_counter) {
-	print $method_link_type, ": ", $count, "\n";
-}
-
