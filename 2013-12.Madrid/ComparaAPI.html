@@ -52,7 +52,8 @@
 </tr><tr>
 <td>
 <p>A GenomeDB is used to link the Compara database to each of the Core species databases.</p>
-<p class="question">1. <u>Print the name, assembly version and genebuild version for all the GenomeDBs in the compara DB</u></p>
+<p class="question">1. Print the name, assembly version and genebuild version for the pig genome</p>
+<p class="question">2. Do the same for all the GenomeDBs in the compara DB</p>
 </td>
 </tr><tr>
 <td>
@@ -66,6 +67,15 @@
             ]
             [
             <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/genome_db1.txt">output</a>
+            ]</li>
+        <li>Exercise 2:
+            [
+            <a href="https://github.com/jherrero/EnsemblAPI_workshop/blob/2013-12.Madrid/solutions/genome_db2.pl">GitHub</a>
+            |
+            <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/genome_db2.pl">text</a>
+            ]
+            [
+            <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/genome_db2.txt">output</a>
             ]</li>
     </ul>
 </td>
@@ -81,19 +91,28 @@ DnaFrag
 <tr>
 <td>
 <p>A DnaFrag represents a top-level SeqRegion in the Compara database</p>
-<p class="question">1. Print all the DnaFrags for chimp</p>
+<p class="question">1. Print the name and length of the pig chromosome 15</p>
+<p class="question">2. Print the name and length of all the DnaFrags for chimp</p>
 </td>
 </tr><tr>
 <td>
 <p class="question">Solutions</p>
 <ul>
-        <li>Exercise 1:
+    <li>Exercise 1:
         <a href="https://github.com/jherrero/EnsemblAPI_workshop/blob/2013-12.Madrid/solutions/dnafrag1.pl">GitHub</a>
         |
         <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/dnafrag1.pl">text</a>
         ]
         [
         <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/dnafrag1.txt">output</a>
+        ]</li>
+    <li>Exercise 1:
+        <a href="https://github.com/jherrero/EnsemblAPI_workshop/blob/2013-12.Madrid/solutions/dnafrag2.pl">GitHub</a>
+        |
+        <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/dnafrag2.pl">text</a>
+        ]
+        [
+        <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/dnafrag2.txt">output</a>
         ]</li>
 </ul>
 </td>
@@ -109,15 +128,16 @@ DnaFrag
     <tr>
         <td>
             <p>The MethodLinkSpeciesSet is a central component in the Compara database, it stores information connecting the various analyses (method) with a set of species (species_set_obj)</p>
-<p class="question">1. Print the total number of MethodLinkSpeciesSet entries stored in the database</p>
-<p class="question">2. Print a unique list of method_link_types and a count of their number in the database</p>
+<p class="question">1. Print the name of the MethodLinkSpeciesSet for the pig-cow LASTZ-NET alignments.</p>
+<p class="question">2. Print the list of all MethodLinkSpeciesSet entries stored in the database</p>
 <p class="question">3. Print a list of the species and their internal Ids (dbIDs) for the 12 eutherian mammal EPO alignments</p>
+<p><strong>HINT:</strong> The species_set_name for the eutherian mammals is "mammals"
         </td>
     </tr><tr>
         <td>
             <p class="question">Solutions</p>
             <ul>
-    <li>Solution 1: [
+    <li>Exercise 1: [
         <a href="https://github.com/jherrero/EnsemblAPI_workshop/blob/2013-12.Madrid/solutions/method_link_species_set1.pl">GitHub</a>
         |
         <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/method_link_species_set1.pl">text</a>
@@ -125,7 +145,7 @@ DnaFrag
         [
         <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/method_link_species_set1.txt">output</a>
         ]</li>
-    <li>Solution 2: [
+    <li>Exercise 2: [
         <a href="https://github.com/jherrero/EnsemblAPI_workshop/blob/2013-12.Madrid/solutions/method_link_species_set2.pl">GitHub</a>
         |
         <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/method_link_species_set2.pl">text</a>
@@ -133,7 +153,7 @@ DnaFrag
         [
         <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/method_link_species_set2.txt">output</a>
         ]</li>
-    <li>Solution 3: [
+    <li>Exercise 3: [
         <a href="https://github.com/jherrero/EnsemblAPI_workshop/blob/2013-12.Madrid/solutions/method_link_species_set3.pl">GitHub</a>
         |
         <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/method_link_species_set3.pl">text</a>
@@ -152,6 +172,7 @@ DnaFrag
 <tr><td>
 <p>A GenomicAlignBlock represents an alignment between two or more pieces of DNA. Every piece of DNA is represented by a GenomicAlign</p>
 <p class="question">1. Print the LASTZ_NET alignments for pig chromosome 15 with cow</p>
+<p>Use pig coordinates 15 : 89151597 - 89157190</p>
 <p class="question">2. Change the above example so that it prints the alignments for the 12 eutherian mammals EPO</p>
 <p class="question"></p>
 <p class="question"></p>
@@ -176,6 +197,14 @@ DnaFrag
                 [
                 <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/genomic_align_block1b.txt">output</a>
                 ]</li>
+			<li>option c: [
+                <a href="https://github.com/jherrero/EnsemblAPI_workshop/blob/2013-12.Madrid/solutions/genomic_align_block1c.pl">GitHub</a>
+                |
+                <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/genomic_align_block1c.pl">text</a>
+                ]
+                [
+                <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/genomic_align_block1c.txt">output</a>
+                ]</li>
         </ul></li>
     <li>Exercise 2: [
         <a href="https://github.com/jherrero/EnsemblAPI_workshop/blob/2013-12.Madrid/solutions/genomic_align_block2.pl">GitHub</a>
@@ -199,7 +228,7 @@ DnaFrag
 </td></tr><tr><td>
     <p class="question">Solutions</p>
     <ul>
-        <li>Solution 1: [
+        <li>Exercise 1: [
             <a href="https://github.com/jherrero/EnsemblAPI_workshop/blob/2013-12.Madrid/solutions/constrained_element1.pl">GitHub</a>
             |
             <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/constrained_element1.pl">text</a>
@@ -212,26 +241,6 @@ DnaFrag
 </tr>
 </table>
 
-
-<table class="outer">
-<tr><th>Synteny</th></tr>
-<tr><td>
-    <p class="question">1. Print the pig-cow syntenic map for the pig chr. 15</p>
-</td></tr><tr><td>
-    <p class="question">Solutions</p>
-    <ul>
-        <li>Solution 1: [
-            <a href="https://github.com/jherrero/EnsemblAPI_workshop/blob/2013-12.Madrid/solutions/synteny1.pl">GitHub</a>
-            |
-            <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/synteny1.pl">text</a>
-            ]
-            [
-            <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/solutions/synteny1.txt">output</a>
-            ]</li>
-    </ul>
-</td>
-</tr>
-</table>
 
 
 
