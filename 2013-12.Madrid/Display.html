@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset='utf-8' />
+        <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+        <meta name="description" content="Ensembl API workshop : Ensembl core API, Whole-genome alignments, Ensembl compara API (genomic alignments)" />
+        
+        <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/stylesheet.css">
+            
+            <title id=doctitle>Display of Constrained Elements</title>
+            </head>
+    
+    <body>
+        <script type="text/javascript" src="http://www.ebi.ac.uk/inc/js/jquery.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                              $("#header_wrap").load("header.html");
+                              title = document.title;
+                              $('#doctitle').load("title.txt", '', function(data) {
+                                                  if ($(this).text() != title) {
+                                                  document.title = $(this).text() + " - " + title
+                                                  }
+                                                  });
+                              
+                              });
+            </script>
+        
+        <!-- HEADER -->
+        <div id="header_wrap" class="outer">
+            <header class="inner">
+                <a id="forkme_banner" href="https://github.com/jherrero/EnsemblAPI_workshop/tree/2013-12.Madrid">View on GitHub</a>
+                
+                <h1 id="project_title">This Workshop</h1>
+                
+                <section id="downloads">
+                    <a class="zip_download_link" href="https://github.com/jherrero/EnsemblAPI_workshop/zipball/master">Download this project as a .zip file</a>
+                    <a class="tar_download_link" href="https://github.com/jherrero/EnsemblAPI_workshop/tarball/master">Download this project as a tar.gz file</a>
+                </section>
+            </header>
+        </div>
+        
+        <!-- MAIN CONTENT -->
+        <div id="main_content_wrap" class="outer">
+            <section id="main_content" class="inner">
+                
+                <p><a href="index.html">Main page</a> &gt; <strong>Display of Constrained Elements</strong></p>
+
+<h2>Display of Constrained Elements</h2>
+<p>If you have obtained constrained elements in the <a href="conservation.html">previous exercise</a>,
+you can use these to run this exercise. You can use pre-calculated elements
+otherwise (see below).</p>
+<p>UCSC and Ensembl accept several file formats to upload/display your own data. The most commonly used are
+BED for simple features and GFF for more complex data (like genes where you would want to define transcripts,
+exons, CDS, etc). We will use BED files for this exercise.</p>
+<p>BED file with GERP elements: [<a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/Exercises/GERP/pecan.mfa.rates.bed">pecan.mfa.rates.bed</a>]</p>
+<p>BED file with PhastCons elements: [<a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/Exercises/PhastCons/tba_human.bed">tba_human.bed</a>]</p>
+<p>If you are using your own file, check its content first. You need at least 3 columns with the chromosome
+name, the start and the end position.</p>
+
+<h2>Upload to Ensembl</h2>
+Uploading your data on Ensembl is done via the "Manage your data" button. Here are some instructions:
+<ol>
+<li>Go to the Ensembl main page: <a href="http://www.ensembl.org">http://www.ensembl.org</a></li>
+<li>Click on Human</li>
+<li>Click on [&nbsp;<img src="http://static.ensembl.org/i/24/page-user.png">&nbsp;Display&nbsp;your&nbsp;data&nbsp;in&nbsp;Ensembl&nbsp;]</li>
+<li>Fill in the form
+<ul>
+<li>Give a name to the track. Anything from "Constrained element" to your pet's name will do.</li>
+<li>Make sure the species is human and the assembly is GRCh37 (the latest one)</li>
+<li>Choose the file format (BED in this case)</li>
+<li>Upload your constrained elements file.</li>
+<li>Click on [Upload].</li>
+</ul></li>
+<li>You should get a page like:
+<pre>
+
+Thank you. Your file uploaded successfully
+
+File uploaded: pecan.mfa.rates.bed (BED file, Homo sapiens)
+
+Total features found: 55
+
+Go to first region with data: <a href="http://www.ensembl.org/Homo_sapiens/Location/View?r=13:32886745-32986745;contigviewbottom=upload_74dd1c0b151339b9cee6b6ed39c85216_78688746=on">13:32886745-32986745</a>
+</pre></li>
+<li>Click on the link provided and look at your data. You can compare them to others available
+constrained elements, genomic features like exons, etc. You can also compare GERP and PhastCons elements if you have uploaded both files.</li>
+<li>You can go back to "Manage your data" to store or share your data.</li>
+</ol>
+<h2>Upload to UCSC</h2>
+Uploading your data on UCSC is done via the "" button. Here are some instructions:
+<ol>
+<li>Go to the UCSC main page: <a href="http://genome.ucsc.edu/">http://genome.ucsc.edu/</a></li>
+<li>Click on "Genome Browser" (top-left).</li>
+<li>Make sure the species is human and the assembly is GRCh37.</li>
+<li>Click on the "add custom tracks" button.</li>
+<li>Check the species/assembly info again.</li>
+<li>Click on "Browse..." and "Submit" your constrained elements file.</li>
+<li>You will get a Results page with a table similar to this:
+<!--hTableStart-->
+<table border="0" cellspacing="0" cellpadding="1"><tr><td>
+<table border="1" bgcolor="#FFFEE8" cellspacing="0">
+<tr>
+<td align='center' bgcolor="#536ED3" 
+title='Short track identifier'><b><font color="#FFFFFF">Name</font></b></td> <td align='center' bgcolor="#536ED3" 
+title='Long track identifier'><b><font color="#FFFFFF">Description</font></b></td> <td align='center' bgcolor="#536ED3" 
+title='Data format of track'><b><font color="#FFFFFF">Type</font></b></td> <td align='center' bgcolor="#536ED3" 
+title='HTML track description'><b><font color="#FFFFFF">Doc</font></b></td> <td align='center' bgcolor="#536ED3" 
+title='Count of discrete items in track'><b><font color="#FFFFFF">Items</font></b></td> <td align='center' bgcolor="#536ED3" 
+title=' Go to genome browser at default track position or first item'><b><font color="#FFFFFF">Pos</font></b></td> <td colspan="1" align='center' bgcolor="#536ED3"><input type="submit" name="hgct_do_delete" value="delete"  title="Remove custom track"></input></td>
+
+</tr>
+<tr><td><a title='Update custom track: User Track' href="http://genome.ucsc.edu/cgi-bin/hgCustom?hgsid=158370534;hgct_table=ct_UserTrack_3545">User Track</a></td><td>User Supplied Track</td><td>bed</td><td align='center'>&nbsp;</td><td align='center'>28</td><td><a href="http://genome.ucsc.edu/cgi-bin/hgTracks?hgsid=158370534;position=chr13:32878022-32878162;hgTracksConfigPage=notSet" title="chr13:32878022-32878162">chr13:</a></td><td colspan="1" align="center"><input type="checkbox" name="hgct_del_ct_UserTrack_3545" value="on" ></input><input type="hidden" name='boolshad.hgct_del_ct_UserTrack_3545' value='0'></input>
+</td>
+</tr>
+
+</table>
+</td></tr></table>
+<!--hTableEnd-->
+</li>
+<li>Click on "go to genome browser" button.</li>
+<li>Adjust the view by zooming out and moving the view.</li>
+<li>You can also click on the right margin of the track to change the display or choose
+among the options in the lower part of the alignments.</li>
+<li>The URL can be shared.</li>
+</ol>
+
+
+
+            </section>
+        </div>
+        
+        <!-- FOOTER  -->
+        <div id="footer_wrap" class="outer">
+            <footer class="inner">
+                <p class="copyright">Ensembl API workshop maintained by <a href="https://github.com/jherrero">jherrero</a></p>
+                <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+            </footer>
+        </div>
+        
+        
+        
+    </body>
+</html>

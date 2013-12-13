@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset='utf-8' />
+        <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+        <meta name="description" content="Ensembl API workshop : Ensembl core API, Whole-genome alignments, Ensembl compara API (genomic alignments)" />
+        
+        <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/stylesheet.css">
+            
+            <title id=doctitle>Genomic Sequence Conservation</title>
+            </head>
+    
+    <body>
+        <script type="text/javascript" src="http://www.ebi.ac.uk/inc/js/jquery.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                              $("#header_wrap").load("header.html");
+                              title = document.title;
+                              $('#doctitle').load("title.txt", '', function(data) {
+                                                  if ($(this).text() != title) {
+                                                  document.title = $(this).text() + " - " + title
+                                                  }
+                                                  });
+                              
+                              });
+            </script>
+        
+        <!-- HEADER -->
+        <div id="header_wrap" class="outer">
+            <header class="inner">
+                <a id="forkme_banner" href="https://github.com/jherrero/EnsemblAPI_workshop/tree/2013-12.Madrid">View on GitHub</a>
+                
+                <h1 id="project_title">This Workshop</h1>
+                
+                <section id="downloads">
+                    <a class="zip_download_link" href="https://github.com/jherrero/EnsemblAPI_workshop/zipball/master">Download this project as a .zip file</a>
+                    <a class="tar_download_link" href="https://github.com/jherrero/EnsemblAPI_workshop/tarball/master">Download this project as a tar.gz file</a>
+                </section>
+            </header>
+        </div>
+        
+        <!-- MAIN CONTENT -->
+        <div id="main_content_wrap" class="outer">
+            <section id="main_content" class="inner">
+                
+                <p><a href="index.html">Main page</a> &gt; <strong>Genomic Sequence Conservation</strong></p>
+                
+                
+
+<h2>Genomic Sequence Conservation</h2>
+<p>If you have obtained alignments in the <a href="alignments.html">previous exercise</a>,
+you can use these to run this exercise. You can use pre-calculated alignments
+otherwise (see below).</p>
+<p>These programs need an alignment and a neutral tree/model to work. Both GERP and PhastCons
+want matching names between the leaves in the tree and the sequence names in the multiple alignment
+file.</p>
+
+
+<h2>GERP</h2>
+<h3>Running the software</h3>
+<p>GERP v1 is written in Perl. Version 2 is a complete re-write in C++ and includes a more formal way
+to call constrained elements. We will use GERP++ for this exercise. Running GERP is a two-steps job.
+Firstly, we have to run gerpcol to score each column of the alignment. Secondly, we run gerpelem using
+the previous scores as input to generate the constrained elements. The basic command line for gerpcol is:</p>
+<pre>gerpcol -t &lt;TREE_FILE&gt; -f &lt;MULTI_FASTA_ALIGNMENT_FILE&gt; -a -e &lt;REFERENCE_SEQUENCE&gt;</pre>
+<p>Gerpcol can take more than one alignment at once. The output file name will be similar to the corresponding
+multiple alignment one, with the extension &quot;.rates&quot;. The tree needs to be a binary tree in Newick
+format. It can be either rooted or unrooted. The branch lengths are essential. Here is a common neutral tree
+for these species:</p>
+<pre>((((HUMAN:0.144,(MOUSE:0.0845,RAT:0.0916):0.2720):0.0206,COW:0.2220):0.2584,OPOSSUM:0.3408):0.1812,CHICKEN:0.4699);</pre>
+<p>Once you have obtained the scores file, you can run gerpelem. Although there are many options to control
+the behaviour of the program, the basic command line is very simple:</p>
+<pre>gerpelem -f &lt;GERP_COL_RATES&gt;</pre>
+
+<h3>Resources</h3>
+<ul>
+<li>GERP main web site: <a href="http://mendel.stanford.edu/SidowLab/downloads/gerp/index.html">http://mendel.stanford.edu/SidowLab/downloads/gerp/index.html</a></li>
+<li>More info on running GERP: [<a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/Exercises/GERP/README.txt">README.txt</a>]</li>
+<li>Help for gerpcol command line: [<a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/Exercises/GERP/gerpcol.txt">gerpcol.txt</a>]</li>
+<li>Holp for gerpelem command line: [<a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/Exercises/GERP/gerpelem.txt">gerpelem.txt</a>]</li>
+<li>Input files for GERP:
+ <ul>
+ <li>Tree file: [<a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/Exercises/GERP/tree.nw">tree.nw</a>] </li>
+ <li>Alignment file: [<a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/Exercises/GERP/pecan.mfa">pecan.mfa</a>] </li>
+ </ul></li>
+</ul>
+
+<h3>Exercise</h3>
+<ol>
+<li>Install GERP++
+<pre>mkdir -p ~/Downloads
+cd ~/Downloads
+wget http://mendel.stanford.edu/SidowLab/downloads/gerp/gerp++.tar.gz
+cd
+mkdir -p bin
+cd bin
+mkdir -p GERP++
+cd GERP++
+tar -zxvf ~/Downloads/gerp++.tar.gz
+# Change a few include statements (required for succesfull compilation in my linux box)
+sed 's/#include &lt;string&gt;/#include &lt;string&gt;\n#include &lt;stdlib.h&gt;/' -i etree.cc
+sed 's/#include &lt;string&gt;/#include &lt;string&gt;\n#include &lt;stdlib.h&gt;\n#include &lt;algorithm&gt;/' -i gerpcol.cc
+sed 's/#include &lt;string&gt;/#include &lt;string.h&gt;/' -i gerpelem.cc
+make
+</pre>
+</li>
+
+<li>Create a new directory for this exercise:
+<pre>mkdir -p ~/whole_genome_alignments
+cd ~/whole_genome_alignments
+mkdir -p GERP
+cd GERP
+wget <a id="GERP_tree_file_url">https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/Exercises/GERP/tree.nw</a>
+wget <a id="GERP_mfa_file_url">https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/Exercises/GERP/pecan.mfa</a>
+</pre>
+</li>
+
+<li>Run GERP-columns
+<pre>
+~/bin/GERP++/gerpcol -t tree.nw -f pecan.mfa -a -e HUMAN -v
+
+# where
+# -t : input tree with branches representing neutral number of substitutions per site
+# -f : input alignment file
+# -a : tell GERP the input file is a multi-fasta file
+# -e : specifies the reference sequence
+# -v : verbose
+</pre>
+</li>
+
+<li>Run GERP-elements
+<pre>
+~/bin/GERP++/gerpelem -f pecan.mfa.rates -c chr13 -s 32878016 -x .bed
+
+# where
+# -f : input scores file (this is the output of gerpcol)
+# -c : chromosome name (for the output)
+# -s : start position (for the output)
+# -x : extension for the output file name
+# -v : verbose
+</pre>
+</li>
+
+</ol>
+
+<h3>Output</h3>
+<p>Gerpcol's output is a tab-delimited file with one line per column in the alignment. Each line contains the
+expected score for that position (neutral rate) and the conservation score as the number of "rejected substitutions"
+at that position on the reference sequence.</p>
+<p>Gerpelem outputs a tab-separated file compatible with the BED format, where each line reprensent a constrained element. Each line lists the chromosome, start, end, score, p-value and length of the element.</p>
+<p>Final scores file: [<a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/Exercises/GERP/pecan.mfa.rates">pecan.mfa.rates</a>]</p>
+<p>Final elements file: [<a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/Exercises/GERP/pecan.mfa.rates.bed">pecan.mfa.rates.bed</a>]</p>
+
+<h3>Troubleshooting</h3>
+<ul>
+<li>If you don't get any constrained element, check the scores (.rates) file. If it contains 0's only, you may have
+to check that the tree leaves and the sequence names match. Note that with this example, the first few lines are
+expected to 0's only, to make sure that all the values are 0.</li>
+</ul>
+
+<h2>PhastCons</h2>
+<p>PhastCons is one of the many tools provided in the Phast package. It includes other softwares like
+<a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/Exercises/PhastCons/phyloP.txt">phyloP</a> and <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/Exercises/PhastCons/phyloFit.txt">phyloFit</a>
+as well as some tools to view and/or edit multiple alignments (see <a href="PhastCons/msa_view.txt">msa_view</a>,
+<a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/Exercises/PhastCons/msa_split.txt">msa_split</a> or <a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/Exercises/PhastCons/msa_diff.txt">msa_diff</a>, for instance).</p>
+
+<h3>Running the software</h3>
+<p>PhastCons requires a multiple alignment and a phylogenetic model file. The phylogenetic model file
+can be generated with phyloFit. The file contains the nucleotide frequencies, a subtitution
+rate matrix and the neutral tree. Although we could use phyloFit for each alignment, it is better to
+fit the model with longer alignments (chromosome or genome wide alignments). A model file is provided
+for this exercise, but you may choose to adjust your own model.</p>
+<p>The basic command line for gerpcol is:</p>
+<pre>phastCons -i MAF &lt;ALIGNMENT_FILE&gt; --rho 0.3 &lt;MODEL_FILE&gt; --most-conserved &lt;BED_OUTPUT_FILE&gt; --seqname &lt;CHRNAME&gt; -n</pre>
+<ul>
+<li>-i MAF: specifies the alignment format. Could be PHYLIP, FASTA, MPM, SS or MAF</li>
+<li>-rho 0.3: sets the scale factor for the constrained model, i.e. the branch lengths of the
+"constrained" tree will be a 30% of the neutral tree.</li>
+<li>-most-conserved &lt;FILE&gt;: outputs constrained elements.</li>
+<li>-n: does not output per-base conservation scores.</li>
+</ul>
+
+<h3>Resources</h3>
+<ul>
+<li>PHAST main web site: <a href="http://compgen.bscb.cornell.edu/phast/">http://compgen.bscb.cornell.edu/phast/</a></li>
+<li>Help for phastCons command line: [<a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/Exercises/PhastCons/phastCons.txt">phastCons.txt</a>]</li>
+<li>Input files for GERP:
+ <ul>
+ <li>Model file: [<a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/Exercises/PhastCons/phyloFit_tree.mod">phyloFit_tree.mod</a>] </li>
+ <li>Alignment file: [<a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/Exercises/PhastCons/tba_human.maf">tba_human.maf</a>] </li>
+ </ul></li>
+</ul>
+
+<h3>Exercise</h3>
+<ol>
+<li>Install PHAST
+<pre>mkdir -p ~/Downloads
+cd ~/Downloads
+wget http://compgen.bscb.cornell.edu/phast/downloads/phast_install.tgz
+mkdir phast_install
+cd phast_install
+tar -zxvf ~/Downloads/phast_install.tgz
+sudo sh install.sh
+</pre>
+</li>
+
+<li>Create a new directory for this exercise:
+<pre>mkdir -p ~/whole_genome_alignments
+cd ~/whole_genome_alignments
+mkdir -p PhastCons
+cd PhastCons
+wget <a id="PHAST_tree_file_url">https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/Exercises/PhastCons/phyloFit_tree.mod</a>
+wget <a id="PHAST_mfa_file_url">https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/Exercises/PhastCons/tba_human.maf</a>
+</pre>
+</li>
+
+<li>Run PHAST
+<pre>
+phastCons -i MAF tba_human.maf --rho 0.3 phyloFit_tree.mod --most-conserved tba_human.bed --seqname chr13 -n
+</pre>
+</li>
+
+</ol>
+
+<h3>Output</h3>
+<p>PhastCons outputs constrained elements in <a href="http://genome.ucsc.edu/FAQ/FAQformat.html#format1">BED format</a>.
+This is a common and simple format for definning &quot;features&quot; on the genome. It is a tab-delimited file.
+Each line is a &quot;feature&quot; and the first columns are always the chromosome name, the start and the end
+coordinates. These files can be direcly uploaded to UCSC of Ensembl for displaying purposes.</p>
+<p>Final elements file: [<a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/Exercises/PhastCons/tba_human.bed">tba_human.bed</a>]</p>
+
+<hr>
+<hr>
+<p>Next exercise: <a href="Display.html">Display of Constrained Elements</a></p>
+
+
+
+            </section>
+        </div>
+        
+        <!-- FOOTER  -->
+        <div id="footer_wrap" class="outer">
+            <footer class="inner">
+                <p class="copyright">Ensembl API workshop maintained by <a href="https://github.com/jherrero">jherrero</a></p>
+                <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+            </footer>
+        </div>
+        
+        
+        
+    </body>
+</html>
