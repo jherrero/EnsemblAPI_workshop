@@ -9,3 +9,4 @@ These files are based on the workshops I have run in the past while at the EBI. 
 
 The web pages providing links to the material and exercises are available under the gh-pages branch and served directly from the GitHub Pages service.
 
+This particular branch is for the workshop at the ENS-ISCIII Masters course in Bioinformatics and Computational Biology, Madrid, December 2013
