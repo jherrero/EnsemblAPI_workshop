@@ -76,6 +76,7 @@ hand, relies on the name of the files.</p>
 </ul>
 </li>
 <li>Change the name of the files to match the species names in the tree</li>
+<li>Modify the E_coli_o6 to mask all non-canonical nucleotides</li>
 </ol>
 
 
@@ -94,15 +95,36 @@ hand, relies on the name of the files.</p>
 
 <h3>Exercise:</h3>
 <ol>
+<!--
 <li>Install blastz (used by MultiZ)
 <pre>mkdir -p ~/Downloads
 cd ~/Downloads
-wget http://www.bx.psu.edu/miller_lab/dist/blastz-2004-12-27.tar.gz
+wget http://www.bx.psu.edu/miller_lab/dist/blastz-2004-12-27.deprecated.tar.gz
 mkdir -p ~/bin
 cd ~/bin
-tar -zxvf ~/Downloads/blastz-2004-12-27.tar.gz
+tar -zxvf ~/Downloads/blastz-2004-12-27.deprecated.tar.gz
 cd blastz-source/
 make
+</pre>
+</li>
+-->
+
+<li>We should install blastz, but it is deprecated. The substitute is called lastz. Let's install this:
+<pre>mkdir -p ~/Downloads
+cd ~/Downloads
+wget http://www.bx.psu.edu/miller_lab/dist/lastz-1.02.00.tar.gz
+mkdir -p ~/bin
+cd ~/bin
+tar -zxvf ~/Downloads/lastz-1.02.00.tar.gz
+# We will ignore the warnings
+sed -e 's/-Werror//' -i src/Makefile
+cd lastz-distrib-1.02.00/
+make
+make install
+make test
+
+# Create a link for lastz called blastz
+ln -s ~/lastz-distrib/bin/lastz ~/bin/blastz
 </pre>
 </li>
 
@@ -120,7 +142,7 @@ make
 
 <li>Now, modify your path to run MulitZ and blastz:
 <pre>
-export PATH=$PATH:~/bin/blastz-source/:~/bin/multiz-tba.012109/
+export PATH=$PATH:~/bin/:~/bin/multiz-tba.012109/
 </pre>
 </li>
 
@@ -169,7 +191,7 @@ all_bz - F=E_coli_k12 D=0 \
 </pre>
 </li>
 
-<li>The next step is fairly complex. Essentially, we have to run multiz in with pairs of species/alignments in the order given byt the species tree. Luckily, we have a program that makes everything much easier. It is called roast. See what it does:
+<li>The next step is fairly complex. Essentially, we have to run multiz for pairs of species/alignments in the order given by the species tree. Luckily, we have a program that makes everything much easier. It is called roast. See what it does:
 <pre>
 roast - E=E_coli_k12 \
     "(E_coli_o17_k52_h18 (E_coli_o8 ((E_coli_o6 E_coli_se15) E_coli_k12)))" \
@@ -200,8 +222,7 @@ roast - E=E_coli_k12 \
 <h3>Output</h3>
 <p>Multiz and TBA use the MAF format [<a href="http://genome.ucsc.edu/FAQ/FAQformat.html#format5">description</a>].
 This format supports several multiple alignments in the same file.</p>
-<p>Final multiple alignment: [<a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/Exercises/MultiZ-TBA/tba_all.maf">tba_all.maf</a>]</p>
-<p>Final multiple alignment on human: [<a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/Exercises/MultiZ-TBA/tba_human.maf">tba_human.maf</a>]</p>
+<p>Final multiple alignment: [<a href="https://raw.github.com/jherrero/EnsemblAPI_workshop/2013-12.Madrid/Exercises/MultiZ/Escherichia_shigella.multiz.maf">Escherichia_shigella.multiz.maf</a>]</p>
 
 
 
