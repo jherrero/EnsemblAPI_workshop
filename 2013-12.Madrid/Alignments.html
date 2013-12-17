@@ -123,8 +123,8 @@ mkdir -p ~/bin
 cd ~/bin
 tar -zxvf ~/Downloads/lastz-1.02.00.tar.gz
 # We will ignore the warnings
-sed -e 's/-Werror//' -i src/Makefile
 cd lastz-distrib-1.02.00/
+sed -e 's/-Werror//' -i src/Makefile
 make
 make install
 make test
@@ -300,6 +300,16 @@ cares about the topology of the tree. Here is the tree for these species:</p>
 <pre>mkdir -p ~/bin
 cd ~/bin
 wget http://www.ebi.ac.uk/~jherrero/downloads/pecan_v0.8.jar
+</pre>
+</li>
+
+<li>Install Exonerate (we only need the exonerate main binary)
+<pre>mkdir -p ~/Downloads
+cd ~/Downloads
+wget http://www.ebi.ac.uk/~guy/exonerate/exonerate-2.2.0-x86_64.tar.gz
+tar -zxvf exonerate-2.2.0-x86_64.tar.gz
+cd exonerate-2.2.0-x86_64/bin
+cp exonerate ~/bin
 </pre>
 </li>
 
