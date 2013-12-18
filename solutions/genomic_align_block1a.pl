@@ -44,10 +44,15 @@ my $genomic_align_block_adaptor = Bio::EnsEMBL::Registry->get_adaptor(
     "Multi", "compara", "GenomicAlignBlock");
 
 # The fetch_all_by_MethodLinkSpeciesSet_DnaFrag() returns a ref.
-# to an array of GenomicAlingBlock objects (pig is the reference species) 
+# to an array of GenomicAlingBlock objects (pig is the reference species)
+# I am using the restrict flag to trim the parts of the alignment that
+# go beyond my coordinates of interest. Any true value would, I use "restrict"
+# for readability.
 my $all_genomic_align_blocks = $genomic_align_block_adaptor->
     fetch_all_by_MethodLinkSpeciesSet_DnaFrag(
-        $methodLinkSpeciesSet, $dnafrag, $pig_start, $pig_end);
+        $methodLinkSpeciesSet, $dnafrag, $pig_start, $pig_end,
+        undef, undef, "restrict");
+
 
 # set up an AlignIO to format SimpleAlign output
 my $alignIO = Bio::AlignIO->newFh(-interleaved => 0,
