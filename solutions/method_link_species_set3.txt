@@ -1,14 +1,14 @@
 # method_link_species_set_id : 619
-homo_sapiens	90
-rattus_norvegicus	140
-oryctolagus_cuniculus	108
-pongo_abelii	60
-mus_musculus	134
-bos_taurus	122
-pan_troglodytes	125
-equus_caballus	61
-gorilla_gorilla	123
-sus_scrofa	132
-macaca_mulatta	31
-canis_familiaris	135
-callithrix_jacchus	117
+homo_sapiens
+rattus_norvegicus
+oryctolagus_cuniculus
+pongo_abelii
+mus_musculus
+bos_taurus
+pan_troglodytes
+equus_caballus
+gorilla_gorilla
+sus_scrofa
+macaca_mulatta
+canis_familiaris
+callithrix_jacchus

@@ -19,7 +19,7 @@ my $mlssa = Bio::EnsEMBL::Registry->get_adaptor(
 my $mlss = $mlssa->fetch_by_method_link_type_species_set_name("EPO", "mammals");
 
 print "# method_link_species_set_id : ", $mlss->dbID, "\n";
-# $mlss->species_set() brings back a list ref of genome_db objects
+# $mlss->species_set_obj->genome_dbs() brings back a list ref of genome_db objects
 foreach my $genome_db (@{ $mlss->species_set_obj->genome_dbs }){
-	print join("\t", $genome_db->name, $genome_db->dbID), "\n";
+	print $genome_db->name, "\n";
 }
