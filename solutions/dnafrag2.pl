@@ -24,7 +24,7 @@ my $dnafrag_adaptor = Bio::EnsEMBL::Registry->get_adaptor(
 # Get all the DnaFrags for chimp
 ## Note fetch_all_by... returns a (reference to a) list of objects
 my $dnafrags = $dnafrag_adaptor->fetch_all_by_GenomeDB_region(
-    $chimp_genome_db, "chromosome");
+    $chimp_genome_db);
 
 print "For ", $chimp_genome_db->name, " :\n";
 # Loop through all the DnaFrags and print their name
